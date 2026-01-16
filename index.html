@@ -314,19 +314,18 @@
         <section class="main-product">
             <div class="gallery">
                 <div class="main-img-container">
-                    <img id="mainImage" class="main-img" src="images/blackview-preto.webp" alt="Blackview BV9300 Pro">
+                    <img id="mainImage" class="main-img" src="images/blakview-preto/BV9300Pro-Black_01.webp" alt="Blackview BV9300 Pro">
                     <button class="nav-arrow prev" onclick="changeImage(-1)">&#10094;</button>
                     <button class="nav-arrow next" onclick="changeImage(1)">&#10095;</button>
                 </div>
                 <div class="thumbnails">
-                    <img class="thumb active" src="images/brackblackview-preto/BV9300Pro-Black_01.webp" alt="Preto" onclick="setImage(0)">
-                    <img class="thumb" src="images/brackblackview-preto/BV9300Pro-Black_02.webp" alt="Preto" onclick="setImage(1)">
-                    <img class="thumb" src="images/brackblackview-preto/BV9300Pro-Black_03.webp" alt="Preto" onclick="setImage(2)">
-					<img class="thumb" src="images/brackblackview-preto/BV9300Pro-Black_04.webp" alt="Preto" onclick="setImage(3)">
-					<img class="thumb" src="images/brackblackview-preto/BV9300Pro-Black_05.webp" alt="Preto" onclick="setImage(4)">
-					<img class="thumb" src="images/brackblackview-preto/BV9300Pro-Black_06.webp" alt="Preto" onclick="setImage(5)">
-					<img class="thumb" src="images/brackblackview-preto/BV9300Pro-Black_07.webp" alt="Preto" onclick="setImage(6)">
-					<img class="thumb" src="images/brackblackview-preto/BV9300Pro-Black_08.webp" alt="Preto" onclick="setImage(7)">
+                    <img class="thumb active" src="images/blakview-preto/BV9300Pro-Black_01.webp" alt="Preto" onclick="setImage(0)">
+                    <img class="thumb" src="images/blakview-preto/BV9300Pro-Black_02.webp" alt="Preto" onclick="setImage(1)">
+                    <img class="thumb" src="images/blakview-preto/BV9300Pro-Black_03.webp" alt="Preto" onclick="setImage(2)">
+                    <img class="thumb" src="images/blakview-preto/BV9300Pro-Black_04.webp" alt="Preto" onclick="setImage(3)">
+                    <img class="thumb" src="images/blakview-preto/BV9300Pro-Black_05.webp" alt="Preto" onclick="setImage(4)">
+                    <img class="thumb" src="images/blakview-preto/BV9300Pro-Black_06.webp" alt="Preto" onclick="setImage(5)">
+                    <img class="thumb" src="images/blakview-preto/BV9300Pro-Black_07.webp" alt="Preto" onclick="setImage(6)">
                 </div>
             </div>
 
@@ -674,11 +673,15 @@
     <script>
         // --- 1. CONFIGURAÇÃO DE IMAGENS E CORES DA GALERIA ---
         const productImages = [
-            "images/blackview-preto.webp", 
-            "images/blackview-verde.webp",
-            "images/blackview-laranja.webp" 
+            "images/blakview-preto/BV9300Pro-Black_01.webp",
+            "images/blakview-preto/BV9300Pro-Black_02.webp",
+            "images/blakview-preto/BV9300Pro-Black_03.webp",
+            "images/blakview-preto/BV9300Pro-Black_04.webp",
+            "images/blakview-preto/BV9300Pro-Black_05.webp",
+            "images/blakview-preto/BV9300Pro-Black_06.webp",
+            "images/blakview-preto/BV9300Pro-Black_07.webp"
         ];
-        const colorNames = ["Preto", "Verde", "Laranja"];
+        const colorNames = ["Preto", "Preto", "Preto", "Preto", "Preto", "Preto", "Preto"];
         let currentImgIndex = 0;
         let selectedColor = "Preto";
         const mainImageElement = document.getElementById('mainImage');
