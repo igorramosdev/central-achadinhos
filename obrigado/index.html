@@ -1,0 +1,898 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pedido Confirmado - Blackview BV9300 Pro</title>
+    <link rel="icon" type="image/png" href="../images/icon_favicon.png">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #ee4d2d;
+            --success: #28a745;
+            --gray-light: #f5f5f5;
+            --gray: #666;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        body {
+            background: var(--gray-light);
+            min-height: 100vh;
+        }
+
+        .header {
+            background: linear-gradient(-180deg, #28a745, #218838);
+            padding: 15px 0;
+            color: white;
+        }
+
+        .header-content {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 0 15px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px 15px;
+        }
+
+        /* Passos */
+        .steps {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 25px;
+        }
+
+        .step {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.85rem;
+            color: #999;
+        }
+
+        .step.completed {
+            color: var(--success);
+        }
+
+        .step-number {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background: #ddd;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+
+        .step.completed .step-number {
+            background: var(--success);
+            color: white;
+        }
+
+        .step-line {
+            width: 30px;
+            height: 2px;
+            background: var(--success);
+        }
+
+        /* Card de Sucesso */
+        .success-card {
+            background: white;
+            border-radius: 8px;
+            padding: 30px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .success-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #28a745, #20c997);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(40, 167, 69, 0.4); }
+            70% { transform: scale(1.05); box-shadow: 0 0 0 15px rgba(40, 167, 69, 0); }
+            100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(40, 167, 69, 0); }
+        }
+
+        .success-icon i {
+            font-size: 2.5rem;
+            color: white;
+        }
+
+        .success-title {
+            font-size: 1.5rem;
+            color: var(--success);
+            margin-bottom: 10px;
+        }
+
+        .success-message {
+            color: #666;
+            font-size: 1rem;
+            margin-bottom: 20px;
+            line-height: 1.5;
+        }
+
+        /* Número do Pedido */
+        .order-number {
+            background: #f9f9f9;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .order-number-info {
+            text-align: left;
+        }
+
+        .order-number-label {
+            font-size: 0.85rem;
+            color: #888;
+            margin-bottom: 5px;
+        }
+
+        .order-number-value {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #333;
+            font-family: monospace;
+        }
+
+        .btn-copy-order {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 10px 18px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            transition: background 0.2s;
+        }
+
+        .btn-copy-order:hover {
+            background: #d73211;
+        }
+
+        .btn-copy-order.copied {
+            background: var(--success);
+        }
+
+        /* ========================================
+           ANIMAÇÃO DE STATUS (STEPPER)
+           ======================================== */
+        .status-stepper {
+            background: white;
+            border-radius: 8px;
+            padding: 25px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+
+        .stepper-title {
+            font-size: 1rem;
+            color: #333;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .stepper-title i {
+            color: var(--success);
+        }
+
+        .stepper-container {
+            position: relative;
+        }
+
+        .stepper-item {
+            display: flex;
+            gap: 15px;
+            padding: 15px 0;
+            position: relative;
+            opacity: 0.4;
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+
+        .stepper-item.active {
+            opacity: 1;
+        }
+
+        .stepper-item.completed {
+            opacity: 1;
+        }
+
+        /* Linha conectora */
+        .stepper-item:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            left: 15px;
+            top: 55px;
+            width: 2px;
+            height: calc(100% - 30px);
+            background: #ddd;
+            transition: background 0.5s ease;
+        }
+
+        .stepper-item.completed:not(:last-child)::after {
+            background: var(--success);
+        }
+
+        .stepper-dot {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: #ddd;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            transition: all 0.5s ease;
+            position: relative;
+            z-index: 1;
+        }
+
+        .stepper-item.active .stepper-dot {
+            background: var(--success);
+            color: white;
+            animation: dotPulse 1s ease-in-out;
+        }
+
+        .stepper-item.completed .stepper-dot {
+            background: var(--success);
+            color: white;
+        }
+
+        @keyframes dotPulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+            100% { transform: scale(1); }
+        }
+
+        .stepper-dot i {
+            font-size: 0.9rem;
+        }
+
+        .stepper-content {
+            flex: 1;
+            padding-top: 5px;
+        }
+
+        .stepper-content strong {
+            display: block;
+            font-size: 0.95rem;
+            color: #333;
+            margin-bottom: 4px;
+            transition: color 0.3s ease;
+        }
+
+        .stepper-item.active .stepper-content strong {
+            color: var(--success);
+        }
+
+        .stepper-content span {
+            font-size: 0.85rem;
+            color: #888;
+            display: block;
+            transition: all 0.5s ease;
+        }
+
+        .stepper-item.active .stepper-content span {
+            color: #666;
+        }
+
+        /* Barra de progresso animada */
+        .progress-bar-container {
+            margin-top: 20px;
+            background: #eee;
+            border-radius: 10px;
+            height: 8px;
+            overflow: hidden;
+        }
+
+        .progress-bar {
+            height: 100%;
+            background: linear-gradient(90deg, var(--success), #20c997);
+            border-radius: 10px;
+            width: 0%;
+            transition: width 0.5s ease;
+        }
+
+        /* Resumo do Pedido */
+        .order-summary {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+
+        .summary-title {
+            font-size: 1rem;
+            color: #333;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .summary-title i {
+            color: var(--primary);
+        }
+
+        .product-item {
+            display: flex;
+            gap: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #eee;
+            margin-bottom: 15px;
+        }
+
+        .product-item img {
+            width: 70px;
+            height: 70px;
+            object-fit: cover;
+            border-radius: 6px;
+            border: 1px solid #eee;
+        }
+
+        .product-details h3 {
+            font-size: 0.95rem;
+            color: #333;
+            margin-bottom: 5px;
+        }
+
+        .product-details .color-badge {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            padding: 2px 8px;
+            border-radius: 3px;
+            font-size: 0.75rem;
+            margin-bottom: 5px;
+        }
+
+        .product-details .quantity-badge {
+            display: inline-block;
+            background: #f0f0f0;
+            color: #666;
+            padding: 2px 8px;
+            border-radius: 3px;
+            font-size: 0.75rem;
+            margin-left: 5px;
+        }
+
+        .product-details .price {
+            color: var(--primary);
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        .summary-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 0;
+            font-size: 0.9rem;
+        }
+
+        .summary-row.total {
+            border-top: 1px solid #eee;
+            padding-top: 15px;
+            margin-top: 10px;
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        .summary-row.total .value {
+            color: var(--success);
+        }
+
+        /* Endereço */
+        .address-section {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+
+        .address-title {
+            font-size: 1rem;
+            color: #333;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .address-title i {
+            color: var(--primary);
+        }
+
+        .address-content {
+            font-size: 0.9rem;
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .cpf-masked {
+            display: block;
+            margin-top: 10px;
+            color: #888;
+            font-size: 0.85rem;
+        }
+
+        /* Informações de Rastreio */
+        .tracking-section {
+            background: #e3f2fd;
+            border: 1px solid #90caf9;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .tracking-title {
+            font-size: 1rem;
+            color: #1565c0;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .tracking-info {
+            font-size: 0.9rem;
+            color: #333;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .tracking-warning {
+            font-size: 0.85rem;
+            color: #666;
+            font-style: italic;
+        }
+
+        .btn-tracking {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: #1976d2;
+            color: white;
+            padding: 12px 20px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: background 0.2s;
+        }
+
+        .btn-tracking:hover {
+            background: #1565c0;
+        }
+
+        /* Botões */
+        .action-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .btn {
+            padding: 15px;
+            border-radius: 6px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            text-decoration: none;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            transition: transform 0.2s;
+        }
+
+        .btn:hover {
+            transform: scale(1.02);
+        }
+
+        .btn-primary {
+            background: linear-gradient(to bottom, #ee4d2d, #d73211);
+            color: white;
+            border: none;
+        }
+
+        .btn-outline {
+            background: white;
+            color: var(--primary);
+            border: 1px solid var(--primary);
+        }
+
+        /* Footer */
+        .footer-info {
+            text-align: center;
+            color: #888;
+            font-size: 0.8rem;
+            padding: 20px 0;
+        }
+
+        .footer-info i {
+            color: var(--success);
+            margin-right: 5px;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-content">
+            <h1><i class="fas fa-check-circle"></i> Pedido Confirmado</h1>
+        </div>
+    </header>
+
+    <div class="container">
+        <!-- Passos -->
+        <div class="steps">
+            <div class="step completed">
+                <span class="step-number"><i class="fas fa-check"></i></span>
+                <span>Endereço</span>
+            </div>
+            <div class="step-line"></div>
+            <div class="step completed">
+                <span class="step-number"><i class="fas fa-check"></i></span>
+                <span>Pagamento</span>
+            </div>
+            <div class="step-line"></div>
+            <div class="step completed">
+                <span class="step-number"><i class="fas fa-check"></i></span>
+                <span>Confirmação</span>
+            </div>
+        </div>
+
+        <!-- Card de Sucesso -->
+        <div class="success-card">
+            <div class="success-icon">
+                <i class="fas fa-check"></i>
+            </div>
+            <h2 class="success-title">Pedido Confirmado!</h2>
+            <p class="success-message">
+                Seu pedido será enviado em até <strong>5 dias úteis</strong>.<br>
+                O código de rastreamento será enviado para o seu e-mail.
+            </p>
+            
+            <!-- Número do Pedido -->
+            <div class="order-number">
+                <div class="order-number-info">
+                    <div class="order-number-label">Número do Pedido</div>
+                    <div class="order-number-value" id="orderNumber">PED00000000</div>
+                </div>
+                <button class="btn-copy-order" id="btnCopyOrder" onclick="copyOrderNumber()">
+                    <i class="fas fa-copy"></i> Copiar
+                </button>
+            </div>
+        </div>
+
+        <!-- ========================================
+             ANIMAÇÃO DE STATUS (STEPPER)
+             ======================================== -->
+        <div class="status-stepper">
+            <h3 class="stepper-title"><i class="fas fa-shipping-fast"></i> Acompanhe seu Pedido</h3>
+            
+            <div class="stepper-container">
+                <div class="stepper-item active" id="step1">
+                    <div class="stepper-dot"><i class="fas fa-check"></i></div>
+                    <div class="stepper-content">
+                        <strong>Pedido Confirmado</strong>
+                        <span id="step1-text">Seu pagamento foi aprovado após 8 segundos</span>
+                    </div>
+                </div>
+                
+                <div class="stepper-item" id="step2">
+                    <div class="stepper-dot"><i class="fas fa-box"></i></div>
+                    <div class="stepper-content">
+                        <strong>Em Separação</strong>
+                        <span>Preparando seu produto</span>
+                    </div>
+                </div>
+                
+                <div class="stepper-item" id="step3">
+                    <div class="stepper-dot"><i class="fas fa-truck"></i></div>
+                    <div class="stepper-content">
+                        <strong>Enviado</strong>
+                        <span>Produto a caminho</span>
+                    </div>
+                </div>
+                
+                <div class="stepper-item" id="step4">
+                    <div class="stepper-dot"><i class="fas fa-home"></i></div>
+                    <div class="stepper-content">
+                        <strong>Entregue</strong>
+                        <span>Previsão: 3-7 dias úteis</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="progress-bar-container">
+                <div class="progress-bar" id="progressBar"></div>
+            </div>
+        </div>
+
+        <!-- Informações de Rastreio -->
+        <div class="tracking-section">
+            <h3 class="tracking-title"><i class="fas fa-map-marker-alt"></i> Rastreamento</h3>
+            <p class="tracking-info">
+                Acompanhe a entrega do seu pedido através do link abaixo:
+            </p>
+            <a href="https://shopeepromocoes.netlify.app/rastreio" class="btn-tracking" target="_blank">
+                <i class="fas fa-search-location"></i> Rastrear Pedido
+            </a>
+            <p class="tracking-warning">
+                <i class="fas fa-info-circle"></i> O código de rastreio pode levar até 48h para atualizar no sistema.
+            </p>
+        </div>
+
+        <!-- Resumo do Pedido -->
+        <div class="order-summary">
+            <h3 class="summary-title"><i class="fas fa-shopping-bag"></i> Resumo do Pedido</h3>
+            
+            <div class="product-item">
+                <img id="productImage" src="../images/blackview-preto.webp" alt="Produto">
+                <div class="product-details">
+                    <h3>Blackview BV9300 Pro 5G</h3>
+                    <span class="color-badge" id="productColor">Cor: Preto</span>
+                    <span class="quantity-badge" id="productQuantity">Qtd: 1</span>
+                    <div class="price" id="productPrice">R$ 128,90</div>
+                </div>
+            </div>
+
+            <div class="summary-row">
+                <span>Subtotal</span>
+                <span id="subtotalValue">R$ 128,90</span>
+            </div>
+            <div class="summary-row">
+                <span>Frete</span>
+                <span style="color: var(--success);">Grátis</span>
+            </div>
+            <div class="summary-row total">
+                <span>Total</span>
+                <span class="value" id="totalValue">R$ 128,90</span>
+            </div>
+        </div>
+
+        <!-- Endereço de Entrega -->
+        <div class="address-section">
+            <h3 class="address-title"><i class="fas fa-truck"></i> Endereço de Entrega</h3>
+            <div class="address-content" id="addressDisplay">Carregando...</div>
+        </div>
+
+        <!-- Botões de Ação -->
+        <div class="action-buttons">
+            <a href="../index.html" class="btn btn-primary">
+                <i class="fas fa-home"></i> Voltar para a Loja
+            </a>
+            <button class="btn btn-outline" onclick="finishOrder()">
+                <i class="fas fa-check-circle"></i> Finalizar e Limpar Dados
+            </button>
+        </div>
+
+        <div class="footer-info">
+            <i class="fas fa-lock"></i> Compra 100% segura | Garantia de 90 dias
+        </div>
+    </div>
+
+    <!-- OrderStore -->
+    <script src="../assets/js/orderStore.js"></script>
+
+    <script>
+        (function() {
+            'use strict';
+
+            // ========================================
+            // VARIÁVEIS DA ANIMAÇÃO
+            // ========================================
+            let animationStep = 1;
+            const STEP_DELAY = 8000; // 8 segundos
+
+            // ========================================
+            // FUNÇÕES UTILITÁRIAS
+            // ========================================
+            function formatCurrency(value) {
+                return value.toLocaleString('pt-BR', {
+                    style: 'currency',
+                    currency: 'BRL'
+                });
+            }
+
+            // ========================================
+            // CARREGAMENTO DE DADOS
+            // ========================================
+            function loadOrderData() {
+                const order = OrderStore.getOrder();
+                const orderNumberEl = document.getElementById('orderNumber');
+
+                if (order) {
+                    orderNumberEl.textContent = order.orderId || order.orderNumber || 'N/A';
+                } else {
+                    orderNumberEl.textContent = 'PED' + Date.now().toString().slice(-8);
+                }
+            }
+
+            function loadProductData() {
+                const order = OrderStore.getOrder();
+                const cart = OrderStore.getCart();
+                const cor = order?.cor || OrderStore.getSelectedColor();
+                const quantidade = order?.quantidade || cart.quantidade || 1;
+                const precoUnitario = 128.90;
+                const total = precoUnitario * quantidade;
+
+                document.getElementById('productImage').src = '../' + OrderStore.getProductImage(cor);
+                document.getElementById('productColor').textContent = 'Cor: ' + cor;
+                document.getElementById('productQuantity').textContent = 'Qtd: ' + quantidade;
+                document.getElementById('productPrice').textContent = formatCurrency(total);
+                document.getElementById('subtotalValue').textContent = formatCurrency(total);
+                document.getElementById('totalValue').textContent = formatCurrency(total);
+            }
+
+            function loadAddressData() {
+                const address = OrderStore.getAddress();
+                const addressDisplay = document.getElementById('addressDisplay');
+
+                if (address) {
+                    let addressHTML = '';
+                    if (address.nomeCompleto) {
+                        addressHTML += '<strong>' + address.nomeCompleto + '</strong><br>';
+                    }
+                    addressHTML += address.endereco;
+                    if (address.numero) addressHTML += ', ' + address.numero;
+                    if (address.complemento) addressHTML += ' - ' + address.complemento;
+                    addressHTML += '<br>' + address.bairro;
+                    addressHTML += '<br>' + address.cidade + '/' + address.estado;
+                    addressHTML += '<br>CEP: ' + address.cep;
+                    addressHTML += '<span class="cpf-masked">CPF: ' + address.cpfMasked + '</span>';
+
+                    addressDisplay.innerHTML = addressHTML;
+                } else {
+                    addressDisplay.textContent = 'Endereço não disponível';
+                }
+            }
+
+            // ========================================
+            // ANIMAÇÃO DE STATUS (STEPPER)
+            // ========================================
+            function startStatusAnimation() {
+                // Inicia com step 1 ativo
+                updateProgressBar(25);
+                
+                // Após 8 segundos, avança para step 2
+                setTimeout(() => {
+                    advanceToStep(2);
+                }, STEP_DELAY);
+            }
+
+            function advanceToStep(stepNumber) {
+                // Marca steps anteriores como completed
+                for (let i = 1; i < stepNumber; i++) {
+                    const prevStep = document.getElementById('step' + i);
+                    if (prevStep) {
+                        prevStep.classList.remove('active');
+                        prevStep.classList.add('completed');
+                    }
+                }
+
+                // Marca step atual como active
+                const currentStep = document.getElementById('step' + stepNumber);
+                if (currentStep) {
+                    currentStep.classList.add('active');
+                    
+                    // Scroll suave para o step se necessário
+                    currentStep.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                }
+
+                // Atualiza barra de progresso
+                const progress = (stepNumber / 4) * 100;
+                updateProgressBar(progress);
+
+                animationStep = stepNumber;
+            }
+
+            function updateProgressBar(percentage) {
+                const progressBar = document.getElementById('progressBar');
+                progressBar.style.width = percentage + '%';
+            }
+
+            // ========================================
+            // COPIAR NÚMERO DO PEDIDO
+            // ========================================
+            window.copyOrderNumber = function() {
+                const orderNumber = document.getElementById('orderNumber').textContent;
+                const btn = document.getElementById('btnCopyOrder');
+
+                navigator.clipboard.writeText(orderNumber).then(() => {
+                    btn.classList.add('copied');
+                    btn.innerHTML = '<i class="fas fa-check"></i> Copiado!';
+                    setTimeout(() => {
+                        btn.classList.remove('copied');
+                        btn.innerHTML = '<i class="fas fa-copy"></i> Copiar';
+                    }, 2000);
+                }).catch(() => {
+                    // Fallback
+                    const tempInput = document.createElement('input');
+                    tempInput.value = orderNumber;
+                    document.body.appendChild(tempInput);
+                    tempInput.select();
+                    document.execCommand('copy');
+                    document.body.removeChild(tempInput);
+                    
+                    btn.classList.add('copied');
+                    btn.innerHTML = '<i class="fas fa-check"></i> Copiado!';
+                    setTimeout(() => {
+                        btn.classList.remove('copied');
+                        btn.innerHTML = '<i class="fas fa-copy"></i> Copiar';
+                    }, 2000);
+                });
+            };
+
+            // ========================================
+            // FINALIZAR PEDIDO
+            // ========================================
+            window.finishOrder = function() {
+                OrderStore.clearAll();
+
+                const btn = event.target.closest('button');
+                btn.innerHTML = '<i class="fas fa-check"></i> Dados limpos!';
+                btn.style.background = '#d4edda';
+                btn.style.borderColor = '#c3e6cb';
+                btn.style.color = '#155724';
+
+                setTimeout(() => {
+                    window.location.href = '../index.html';
+                }, 2000);
+            };
+
+            // ========================================
+            // INICIALIZAÇÃO
+            // ========================================
+            document.addEventListener('DOMContentLoaded', function() {
+                loadOrderData();
+                loadProductData();
+                loadAddressData();
+                
+                // Inicia animação de status
+                startStatusAnimation();
+            });
+        })();
+    </script>
+</body>
+</html>
