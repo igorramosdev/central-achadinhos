@@ -123,7 +123,7 @@
             }
 
             // Redireciona para a página de endereço
-            window.location.href = 'endereco/index.html';
+            window.location.href = 'https://seguro.centralachadinhos.shop/r/BR8UCNAUS7';
         };
 
         // Função para atualizar badge do carrinho
