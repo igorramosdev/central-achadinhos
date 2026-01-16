@@ -122,14 +122,6 @@
         }
         .cart-animating { animation: cartBump 0.3s ease-in-out; }
 
-        @media (max-width: 768px) {
-            .header-info { display: none; }
-            .nav-flex { gap: 15px; }
-            .logo img { height: 32px; }
-            .search-container { height: 38px; }
-            .search-btn { width: 50px; }
-        }
-
         /* HERO SECTION */
         .main-product { background: white; margin-top: 20px; border-radius: 8px; overflow: hidden; box-shadow: 0 1px 2px rgba(0,0,0,0.05); display: flex; flex-wrap: wrap; }
 
@@ -289,6 +281,54 @@
         }
         #custom-alert.show { opacity: 1; visibility: visible; transform: translate(-50%, -50%) scale(1); }
         #custom-alert i { font-size: 2.5rem; color: #d73211; margin-bottom: 10px; }
+
+        /* --- ESTILOS DO BANNER RESPONSIVO --- */
+        .banner-container {
+            width: 100%;
+            margin-top: 15px;
+            margin-bottom: 5px;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        .banner-container img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 8px;
+        }
+
+        /* --- MEDIA QUERIES --- */
+        @media (max-width: 768px) {
+            .header-info { display: none; }
+            .nav-flex { gap: 15px; }
+            .logo img { height: 32px; }
+            .search-container { height: 38px; }
+            .search-btn { width: 50px; }
+            
+            /* Melhoria na Galeria de Imagens para Mobile */
+            .gallery { 
+                padding: 10px 15px; 
+            }
+            .thumbnails {
+                justify-content: flex-start; /* Alinha à esquerda para permitir scroll */
+                overflow-x: auto; /* Habilita rolagem horizontal */
+                padding-bottom: 5px;
+                scroll-behavior: smooth;
+                -webkit-overflow-scrolling: touch; /* Rolagem suave no iOS */
+            }
+            .thumbnails::-webkit-scrollbar {
+                height: 4px; /* Barra de rolagem discreta */
+            }
+            .thumbnails::-webkit-scrollbar-thumb {
+                background: #ccc;
+                border-radius: 4px;
+            }
+            .thumbnails img {
+                flex-shrink: 0; /* Impede que as imagens encolham */
+                width: 55px; /* Tamanho levemente ajustado para mobile */
+                height: 55px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -340,11 +380,7 @@
                     <p class="color-title">Cor Selecionada: <strong id="selectedColorName">Preto</strong></p>
                     <div class="color-options">
                         <div class="color-btn c-black selected" onclick="selectColor('Preto', 0, this)" data-color="Preto"></div>
-                        <!--
-<div class="color-btn c-green" onclick="selectColor('Verde', 1, this)" data-color="Verde"></div>
-<div class="color-btn c-orange" onclick="selectColor('Laranja', 2, this)" data-color="Laranja"></div>
--->
-                    </div>
+                        </div>
                 </div>
 
                 <div class="price-box">
@@ -371,15 +407,13 @@
                     COMPRAR AGORA <small style="display:block; font-weight:normal; font-size:0.75rem; margin-top:3px;">Envio Imediato com Nota Fiscal</small>
                 </a>
                 
-                <!--
-<button class="btn-add-cart" onclick="adicionarAoCarrinho(event)">
-  <i class="fas fa-cart-plus"></i> Adicionar ao Carrinho
-</button>
--->
-            </div>
+                </div>
         </section>
 
-        <!-- SEÇÃO DO VÍDEO -->
+        <div class="banner-container">
+            <img src="images/banner-entregador.webp" alt="Entrega Segura">
+        </div>
+
         <section class="content-section">
             <h2 class="section-title"><i class="fas fa-play-circle"></i> Veja o BV9300 Pro em Ação</h2>
             <p style="color: #555; font-size: 0.95rem; line-height: 1.6; margin-bottom: 20px; text-align: center;">
@@ -922,12 +956,9 @@
         };
     </script>
 
-    <!-- SISTEMA DE NOTIFICAÇÕES V2 - Módulo Externo -->
     <script src="notification-module.js"></script>
 
-    <!-- Módulo de Estado do Pedido -->
     <script src="assets/js/orderStore.js"></script>
-    <!-- Funcionalidades do Carrinho -->
     <script src="assets/js/main-cart.js"></script>
 </body>
 </html>
