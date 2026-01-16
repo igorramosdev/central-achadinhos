@@ -319,9 +319,14 @@
                     <button class="nav-arrow next" onclick="changeImage(1)">&#10095;</button>
                 </div>
                 <div class="thumbnails">
-                    <img class="thumb active" src="images/blackview-preto.webp" alt="Preto" onclick="setImage(0)">
-                    <img class="thumb" src="images/blackview-verde.webp" alt="Verde" onclick="setImage(1)">
-                    <img class="thumb" src="images/blackview-laranja.webp" alt="Laranja" onclick="setImage(2)">
+                    <img class="thumb active" src="images/brackblackview-preto/BV9300Pro-Black_01.webp" alt="Preto" onclick="setImage(0)">
+                    <img class="thumb" src="images/brackblackview-preto/BV9300Pro-Black_02.webp" alt="Preto" onclick="setImage(1)">
+                    <img class="thumb" src="images/brackblackview-preto/BV9300Pro-Black_03.webp" alt="Preto" onclick="setImage(2)">
+					<img class="thumb" src="images/brackblackview-preto/BV9300Pro-Black_04.webp" alt="Preto" onclick="setImage(3)">
+					<img class="thumb" src="images/brackblackview-preto/BV9300Pro-Black_05.webp" alt="Preto" onclick="setImage(4)">
+					<img class="thumb" src="images/brackblackview-preto/BV9300Pro-Black_06.webp" alt="Preto" onclick="setImage(5)">
+					<img class="thumb" src="images/brackblackview-preto/BV9300Pro-Black_07.webp" alt="Preto" onclick="setImage(6)">
+					<img class="thumb" src="images/brackblackview-preto/BV9300Pro-Black_08.webp" alt="Preto" onclick="setImage(7)">
                 </div>
             </div>
 
@@ -336,15 +341,17 @@
                     <p class="color-title">Cor Selecionada: <strong id="selectedColorName">Preto</strong></p>
                     <div class="color-options">
                         <div class="color-btn c-black selected" onclick="selectColor('Preto', 0, this)" data-color="Preto"></div>
-                        <div class="color-btn c-green" onclick="selectColor('Verde', 1, this)" data-color="Verde"></div>
-                        <div class="color-btn c-orange" onclick="selectColor('Laranja', 2, this)" data-color="Laranja"></div>
+                        <!--
+<div class="color-btn c-green" onclick="selectColor('Verde', 1, this)" data-color="Verde"></div>
+<div class="color-btn c-orange" onclick="selectColor('Laranja', 2, this)" data-color="Laranja"></div>
+-->
                     </div>
                 </div>
 
                 <div class="price-box">
                     <div class="discount-tag">89% OFF - ÚLTIMAS UNIDADES</div>
                     <div class="old-price">R$ 849,90</div>
-                    <div class="current-price">R$ 128,90</div>
+                    <div class="current-price">R$ 127,90</div>
                     <div class="pix-price-info">
                         <img src="https://img.icons8.com/color/200/pix.png" alt="Pix" class="pix-logo">
                         Pagamento no Pix com Aprovação Imediata
@@ -641,7 +648,7 @@
     <div class="sticky-footer">
         <div class="price-footer">
             <div class="old-f">R$ 849,90</div>
-            <div class="curr-f">R$ 128,90</div>
+            <div class="curr-f">R$ 127,90</div>
         </div>
         <a href="javascript:void(0);" class="btn-footer" onclick="iniciarCompra()">
             COMPRAR AGORA
@@ -743,8 +750,8 @@
                 corIndex: currentImgIndex,
                 imagem: productImages[currentImgIndex],
                 produto: 'Blackview BV9300 Pro 5G',
-                preco: '128.90',
-                precoFormatado: 'R$ 128,90',
+                preco: '127.90',
+                precoFormatado: 'R$ 127,90',
                 timestamp: Date.now()
             };
             localStorage.setItem('checkoutProduct', JSON.stringify(productData));
