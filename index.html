@@ -1,7 +1,18 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<script>
+    <script>
+      window.pixelId = "69618e480e598651b2b76386";
+      var a = document.createElement("script");
+      a.setAttribute("async", "");
+      a.setAttribute("defer", "");
+      a.setAttribute("src", "https://cdn.utmify.com.br/scripts/pixel/pixel.js");
+      document.head.appendChild(a);
+    </script>
+
+    <script src="https://cdn.utmify.com.br/scripts/utms/latest.js" data-utmify-prevent-xcod-sck data-utmify-prevent-subids async defer></script>
+
+    <script>
     !function(f,b,e,v,n,t,s)
     {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
     n.callMethod.apply(n,arguments):n.queue.push(arguments)};
@@ -155,6 +166,7 @@
         .product-info { flex: 1.2; padding: 20px; min-width: 300px; }
 
         h1 { font-size: 1.5rem; color: var(--shopee-black); line-height: 1.3; margin-bottom: 5px; font-weight: 500; }
+        .badge-nf { background: #00bfa5; color: white; padding: 2px 6px; font-size: 0.7rem; border-radius: 2px; vertical-align: middle; margin-right: 5px; font-weight: bold; }
 
         .color-section { margin: 15px 0; }
         .color-title { font-size: 0.9rem; color: #555; margin-bottom: 8px; }
@@ -196,6 +208,22 @@
             animation: pulse 2s infinite;
         }
         @keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.02); } 100% { transform: scale(1); } }
+
+        /* --- NOVO BOTÃO ADICIONAR AO CARRINHO (ESTILO SHOPEE CLARO) --- */
+        .btn-add-cart {
+            background-color: #fff0f0;
+            color: #ee4d2d;
+            border: 1px solid #ee4d2d;
+            text-decoration: none; display: flex; align-items: center; justify-content: center; width: 100%;
+            padding: 15px; font-size: 1.1rem; font-weight: 500;
+            border-radius: 6px; cursor: pointer; gap: 10px;
+            margin-top: 10px;
+            transition: 0.2s;
+        }
+        .btn-add-cart:hover {
+            background-color: #ffe6e6;
+        }
+
         .content-section { background: white; margin-top: 12px; padding: 20px; border-radius: 8px; }
         .section-title { font-size: 1.2rem; font-weight: 500; border-bottom: 2px solid var(--shopee-orange); padding-bottom: 10px; margin-bottom: 15px; }
 
@@ -310,8 +338,8 @@
             </div>
 
             <div class="product-info">
-                <img src="images/indicado.png" alt="Indicado" style="height: 22px; vertical-align: middle; margin-right: 8px;">
-                <h1 style="display: inline;">Blackview BV9300 Pro 5G – 24GB RAM, 256GB, Bateria 15.080mAh, Ultra Resistente à Água, Poeira e Quedas</h1>
+                <span class="badge-nf"><img src="images/indicado.png" alt="Indicado" style="height: 18px; vertical-align: middle;"> Indicado</span>
+                <h1>Blackview BV9300 Pro 5G – 24GB RAM, 256GB, Bateria 15.080mAh, Ultra Resistente à Água, Poeira e Quedas</h1>
                 
                 <p class="scarcity"><i class="fas fa-fire"></i> Resta apenas <strong>7</strong> unidades no lote promocional!</p>
                 <div class="stock-bar-container"><div class="stock-bar-fill"></div></div>
@@ -328,7 +356,7 @@
                 <div class="price-box">
                     <div class="discount-tag">89% OFF - ÚLTIMAS UNIDADES</div>
                     <div class="old-price">R$ 849,90</div>
-                    <div class="current-price">R$ 127,90</div>
+                    <div class="current-price">R$ 128,90</div>
                     <div class="pix-price-info">
                         <img src="https://img.icons8.com/color/200/pix.png" alt="Pix" class="pix-logo">
                         Pagamento no Pix com Aprovação Imediata
@@ -345,30 +373,13 @@
                     <span id="shipping-msg"><strong>Frete Grátis</strong> para todo o <strong>Brasil</strong>!</span>
                 </div>
 
-                <a href="https://seguro.centralachadinhos.shop/r/BR8UCNAUS7" class="btn-buy" onclick="return iniciarCompra(event)">
+                <a href="javascript:void(0);" class="btn-buy" onclick="iniciarCompra()">
                     COMPRAR AGORA <small style="display:block; font-weight:normal; font-size:0.75rem; margin-top:3px;">Envio Imediato com Nota Fiscal</small>
                 </a>
-            </div>
-        </section>
-
-        <!-- SEÇÃO DO VÍDEO -->
-        <section class="content-section">
-            <h2 class="section-title"><i class="fas fa-play-circle"></i> Veja o BV9300 Pro em Ação</h2>
-            <p style="color: #555; font-size: 0.95rem; line-height: 1.6; margin-bottom: 20px; text-align: center;">
-                Descubra por que o BV9300 Pro é a escolha ideal para quem busca resistência extrema e desempenho superior. 
-                Com bateria de 15.080mAh que dura dias, certificação militar e construção robusta, ele acompanha você 
-                no trabalho, nas trilhas e no dia a dia sem medo de quedas, água ou poeira.
-            </p>
-            <div class="video-container" style="display: flex; justify-content: center; margin-bottom: 10px;">
-                <div class="video-wrapper" style="width: 100%; max-width: 480px; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.15);">
-                    <iframe 
-                        src="https://player.vimeo.com/video/1154303821?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&amp;autoplay=1"
-                        style="width: 100%; aspect-ratio: 9/16; display: block; border: none;"
-                        allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
-                        referrerpolicy="strict-origin-when-cross-origin"
-                        title="blackview-pv">
-                    </iframe>
-                </div>
+                
+                <button class="btn-add-cart" onclick="adicionarAoCarrinho(event)">
+                    <i class="fas fa-cart-plus"></i> Adicionar ao Carrinho
+                </button>
             </div>
         </section>
 
@@ -619,9 +630,9 @@
     <div class="sticky-footer">
         <div class="price-footer">
             <div class="old-f">R$ 849,90</div>
-            <div class="curr-f">R$ 127,90</div>
+            <div class="curr-f">R$ 128,90</div>
         </div>
-        <a href="https://seguro.centralachadinhos.shop/r/BR8UCNAUS7" class="btn-footer" onclick="return iniciarCompra(event)">
+        <a href="javascript:void(0);" class="btn-footer" onclick="iniciarCompra()">
             COMPRAR AGORA
         </a>
     </div>
@@ -709,57 +720,31 @@
 
         // --- 2. SISTEMA DE PERSISTÊNCIA DA COR SELECIONADA ---
         function salvarCorSelecionada() {
-            // Garante que a cor salva é a atualmente selecionada no DOM
-            try {
-                const selectedBtn = document.querySelector('.color-btn.selected');
-                const domColor = selectedBtn && (selectedBtn.getAttribute('data-color') || selectedBtn.dataset.color);
-                if (domColor) { selectedColor = domColor; }
-            } catch (e) {}
-
             const productData = {
                 cor: selectedColor,
                 corIndex: currentImgIndex,
                 imagem: productImages[currentImgIndex],
                 produto: 'Blackview BV9300 Pro 5G',
-                preco: '127.90',
-                precoFormatado: 'R$ 127,90',
+                preco: '128.90',
+                precoFormatado: 'R$ 128,90',
                 timestamp: Date.now()
             };
             localStorage.setItem('checkoutProduct', JSON.stringify(productData));
-            
-            // CORREÇÃO: Também salva no checkoutCart para garantir consistência
-            const cartData = {
-                cor: selectedColor,
-                quantidade: 1,
-                precoUnitario: 127.90
-            };
-            // Preserva quantidade existente se houver
-            const existingCart = localStorage.getItem('checkoutCart');
-            if (existingCart) {
-                try {
-                    const existing = JSON.parse(existingCart);
-                    cartData.quantidade = existing.quantidade || 1;
-                } catch(e) {}
-            }
-            localStorage.setItem('checkoutCart', JSON.stringify(cartData));
         }
 
-        function iniciarCompra(event) {
-            // Evita navegação direta para garantir disparo do pixel e persistência
-            if (event && typeof event.preventDefault === 'function') event.preventDefault();
-
+        function iniciarCompra() {
             // Salva a cor selecionada antes de redirecionar
             salvarCorSelecionada();
-
+            
             // Dispara evento do Facebook Pixel
             if (typeof fbq !== 'undefined') {
                 fbq('track', 'InitiateCheckout');
             }
-
-            // Redireciona para o checkout
-            window.location.href = 'https://pay.finaliza.shop/pl/c976dedc37';
-            return false;
+            
+            // Redireciona para a página de endereço
+            window.location.href = 'endereco/index.html';
         }
+
         // --- 3. Lógica do Botão de Comentário ---
         function triggerReviewAlert() {
             var alertBox = document.getElementById("custom-alert");
@@ -830,6 +815,41 @@
             document.getElementById('image-modal').classList.remove('active');
         }
 
+        // --- 9. SIMULAÇÃO ADICIONAR AO CARRINHO ---
+        function adicionarAoCarrinho(event) {
+            event.preventDefault();
+
+            // Salva a cor selecionada
+            salvarCorSelecionada();
+
+            // 1. Atualiza o contador do carrinho
+            const cartCountEl = document.querySelector('.cart-count');
+            let currentCount = parseInt(cartCountEl.innerText);
+            cartCountEl.innerText = currentCount + 1;
+
+            // 2. Anima o ícone do carrinho
+            const cartContainer = document.querySelector('.cart-container');
+            cartContainer.classList.add('cart-animating');
+            setTimeout(() => cartContainer.classList.remove('cart-animating'), 300);
+
+            // 3. Feedback visual no botão clicado
+            const btn = event.currentTarget;
+            const originalHTML = btn.innerHTML;
+            
+            btn.innerHTML = '<i class="fas fa-check"></i> Adicionado!';
+            btn.style.backgroundColor = '#dff0d8';
+            btn.style.borderColor = '#d6e9c6';
+            btn.style.color = '#3c763d';
+
+            // 4. Volta ao normal após 2 segundos
+            setTimeout(() => {
+                btn.innerHTML = originalHTML;
+                btn.style.backgroundColor = ''; 
+                btn.style.borderColor = '';
+                btn.style.color = '';
+            }, 2000);
+        }
+
         // --- INICIALIZAÇÃO ---
         window.onload = function () {
             startTimer(60 * 15, document.querySelector('#countdown'));
@@ -860,5 +880,10 @@
 
     <!-- SISTEMA DE NOTIFICAÇÕES V2 - Módulo Externo -->
     <script src="notification-module.js"></script>
+
+    <!-- Módulo de Estado do Pedido -->
+    <script src="assets/js/orderStore.js"></script>
+    <!-- Funcionalidades do Carrinho -->
+    <script src="assets/js/main-cart.js"></script>
 </body>
 </html>
