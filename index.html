@@ -165,8 +165,6 @@
         .color-btn:hover { transform: scale(1.1); }
         .color-btn.selected { border: 2px solid var(--shopee-orange); box-shadow: 0 0 5px rgba(238,77,45,0.5); }
         .c-black { background-color: #222; }
-        .c-green { background-color: #3b5c3b; }
-        .c-orange { background-color: #e67e22; }
 
         .price-box { background: #fafafa; padding: 15px; margin: 15px 0; border-left: 4px solid var(--shopee-orange); border-radius: 0 8px 8px 0; position: relative; }
         .discount-tag { position: absolute; top: -12px; right: 10px; background: #ff4b2b; color: white; font-size: 0.7rem; font-weight: bold; padding: 4px 8px; border-radius: 4px; text-transform: uppercase; box-shadow: 0 2px 5px rgba(0,0,0,0.2); }
@@ -186,47 +184,27 @@
 
         .shipping-box { background: #f6ffed; border: 1px dashed #b7eb8f; padding: 12px; margin: 10px 0; border-radius: 4px; color: #389e0d; font-size: 0.95rem; font-weight: 500; display: flex; align-items: center; gap: 8px; }
 
-        /* --- BOTÃO COMPRAR AGORA (VERMELHO) --- */
-        .btn-buy {
-            background: linear-gradient(to bottom, #ee4d2d, #d73211);
-            color: white; text-decoration: none; display: block; width: 100%;
-            padding: 18px; text-align: center; font-size: 1.2rem; font-weight: bold;
-            border-radius: 6px; text-transform: uppercase; border: none; cursor: pointer;
-            box-shadow: 0 4px 10px rgba(238, 77, 45, 0.3); margin-top: 15px;
-            animation: pulse 2s infinite;
+        /* --- CONTAINER DO BOTÃO YAMPI --- */
+        .yampi-btn-container {
+            margin-top: 15px;
+            text-align: center;
         }
-        @keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.02); } 100% { transform: scale(1); } }
-
-        /* === YAMPI BUY BUTTON - skin Shopee (mantém o mesmo design) === */
-        .yampi-buy-wrap { margin-top: 15px; }
-        .yampi-buy-sub{
-            margin-bottom: 8px;
+        
+        .envio-imediato-text {
+            display: block;
+            background: linear-gradient(to right, #222, #333);
             color: #fff;
             font-size: 0.75rem;
-            font-weight: 400;
-            text-align: center;
-            opacity: 0.95;
-            background: rgba(238,77,45,0.12);
-            border: 1px dashed rgba(238,77,45,0.35);
-            padding: 8px 10px;
-            border-radius: 8px;
+            font-weight: 600;
+            padding: 8px 15px;
+            border-radius: 4px 4px 0 0;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
-        .yampi-buy-wrap :is(a, button, .ymp-button, .ymp-btn){
-            width: 100% !important;
-            display: block !important;
-            text-align: center !important;
-            border-radius: 6px !important;
-            padding: 18px !important;
-            font-size: 1.2rem !important;
-            font-weight: 800 !important;
-            text-transform: uppercase !important;
-            border: none !important;
-            cursor: pointer !important;
-            color: #fff !important;
-            background: linear-gradient(to bottom, #ee4d2d, #d73211) !important;
-            box-shadow: 0 4px 10px rgba(238, 77, 45, 0.3) !important;
-            text-decoration: none !important;
-            animation: pulse 2s infinite !important;
+        
+        .envio-imediato-text i {
+            margin-right: 6px;
+            color: #4CAF50;
         }
 
         .content-section { background: white; margin-top: 12px; padding: 20px; border-radius: 8px; }
@@ -247,7 +225,6 @@
         .rating-score { font-size: 2rem; font-weight: bold; color: var(--shopee-orange); }
         .rating-stars { color: #ffc107; font-size: 1.1rem; }
 
-        .review-card { background: #fafafa; padding: 15px; border-radius: 8px; margin-bottom: 15px; }
         .user-header { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
         .avatar { width: 40px; height: 40px; border-radius: 50%; overflow: hidden; }
         .avatar img { width: 100%; height: 100%; object-fit: cover; }
@@ -280,10 +257,41 @@
         .footer-address { text-align: center; margin-top: 20px; padding-top: 20px; border-top: 1px solid #444; font-size: 0.8rem; line-height: 1.6; }
         .copyright { text-align: center; margin-top: 15px; font-size: 0.75rem; color: #666; }
 
-        .sticky-footer { position: fixed; bottom: 0; left: 0; right: 0; background: white; padding: 10px 15px; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 -2px 10px rgba(0,0,0,0.1); z-index: 999; }
+        /* --- STICKY FOOTER COM BOTÃO YAMPI --- */
+        .sticky-footer { 
+            position: fixed; 
+            bottom: 0; 
+            left: 0; 
+            right: 0; 
+            background: white; 
+            padding: 10px 15px; 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            box-shadow: 0 -2px 10px rgba(0,0,0,0.1); 
+            z-index: 999; 
+        }
         .price-footer .old-f { font-size: 0.8rem; color: #999; text-decoration: line-through; }
         .price-footer .curr-f { font-size: 1.3rem; font-weight: bold; color: var(--shopee-orange); }
-        .btn-footer { background: linear-gradient(to right, #ff4b2b, #ff416c); color: white; padding: 12px 30px; border-radius: 6px; font-weight: bold; text-decoration: none; text-transform: uppercase; font-size: 0.9rem; }
+        
+        .sticky-footer .yampi-footer-btn {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .sticky-footer .envio-text-footer {
+            font-size: 0.65rem;
+            color: #222;
+            font-weight: 600;
+            text-transform: uppercase;
+            margin-bottom: 3px;
+        }
+        
+        .sticky-footer .envio-text-footer i {
+            color: #4CAF50;
+            margin-right: 3px;
+        }
 
         #notify-popup { position: fixed; bottom: 80px; left: 15px; background: white; padding: 10px; border-radius: 8px; box-shadow: 0 2px 15px rgba(0,0,0,0.15); display: flex; align-items: center; gap: 10px; max-width: 300px; z-index: 998; transform: translateX(-120%); transition: transform 0.4s ease-out; }
         #notify-popup.show { transform: translateX(0); }
@@ -306,6 +314,19 @@
         }
         #custom-alert.show { opacity: 1; visibility: visible; transform: translate(-50%, -50%) scale(1); }
         #custom-alert i { font-size: 2.5rem; color: #d73211; margin-bottom: 10px; }
+        
+        /* Responsividade para o botão Yampi no footer */
+        @media (max-width: 480px) {
+            .sticky-footer {
+                padding: 8px 10px;
+            }
+            .price-footer .curr-f {
+                font-size: 1.1rem;
+            }
+            .sticky-footer .envio-text-footer {
+                font-size: 0.55rem;
+            }
+        }
     </style>
 </head>
 <body>
@@ -337,8 +358,6 @@
                 </div>
                 <div class="thumbnails">
                     <img class="thumb active" src="images/blackview-preto.webp" alt="Preto" onclick="setImage(0)">
-                    <img class="thumb" src="images/blackview-verde.webp" alt="Verde" onclick="setImage(1)">
-                    <img class="thumb" src="images/blackview-laranja.webp" alt="Laranja" onclick="setImage(2)">
                 </div>
             </div>
 
@@ -352,9 +371,7 @@
                 <div class="color-section">
                     <p class="color-title">Cor Selecionada: <strong id="selectedColorName">Preto</strong></p>
                     <div class="color-options">
-                        <div class="color-btn c-black selected" onclick="selectColor('Preto', 0, this)" data-color="Preto"></div>
-                        <div class="color-btn c-green" onclick="selectColor('Verde', 1, this)" data-color="Verde"></div>
-                        <div class="color-btn c-orange" onclick="selectColor('Laranja', 2, this)" data-color="Laranja"></div>
+                        <div class="color-btn c-black selected" data-color="Preto"></div>
                     </div>
                 </div>
 
@@ -378,8 +395,11 @@
                     <span id="shipping-msg"><strong>Frete Grátis</strong> para todo o <strong>Brasil</strong>!</span>
                 </div>
 
-                <div class="yampi-buy-wrap" id="yampi-buy-wrap">
-                    <div class="yampi-buy-sub">Envio Imediato com Nota Fiscal</div>
+                <!-- BOTÃO YAMPI COM TEXTO ENVIO IMEDIATO -->
+                <div class="yampi-btn-container">
+                    <span class="envio-imediato-text">
+                        <i class="fas fa-check-circle"></i> Envio Imediato com Nota Fiscal
+                    </span>
                     <script class="ymp-script" src="https://api.yampi.io/v2/central-achadinhos/public/buy-button/P21O0FTU9S/js"></script>
                 </div>
             </div>
@@ -427,111 +447,70 @@
                 <div class="feature-card">
                     <img src="images/desempenho.webp" alt="Desempenho">
                     <h3><i class="fas fa-microchip"></i> Desempenho de Topo de Linha</h3>
-                    <p>Processador Helio G99, Tela de 120Hz fluida e até <strong>24GB de RAM</strong> (12GB Físico + 12GB Virtual). Armazenamento de 256GB expansível até 1TB.</p>
+                    <p>Processador <strong>MediaTek Dimensity 7050</strong> com 5G. São <strong>24GB de RAM</strong> (12GB físicos + 12GB virtuais) e <strong>256GB de armazenamento</strong> para tudo que você precisar.</p>
                 </div>
             </div>
         </section>
 
         <section class="content-section">
-            <h2 class="section-title"><i class="fas fa-box-open"></i> O que vem na caixa?</h2>
-            <ul style="list-style:none;">
-                <li style="padding: 10px; border-bottom: 1px solid #f0f0f0; display:flex; align-items:center; gap:10px;">
-                    <i class="fas fa-check" style="color:var(--green-success)"></i> 1x Smartphone Blackview BV9300 Pro
-                </li>
-                <li style="padding: 10px; border-bottom: 1px solid #f0f0f0; display:flex; align-items:center; gap:10px;">
-                    <i class="fas fa-check" style="color:var(--green-success)"></i> 1x Carregador Turbo (33W)
-                </li>
-                <li style="padding: 10px; border-bottom: 1px solid #f0f0f0; display:flex; align-items:center; gap:10px;">
-                    <i class="fas fa-check" style="color:var(--green-success)"></i> 1x Cabo USB Tipo-C
-                </li>
-                <li style="padding: 10px; border-bottom: 1px solid #f0f0f0; display:flex; align-items:center; gap:10px;">
-                    <i class="fas fa-check" style="color:var(--green-success)"></i> 1x Película Protetora (Já aplicada)
-                </li>
-                <li style="padding: 10px; display:flex; align-items:center; gap:10px;">
-                    <i class="fas fa-check" style="color:var(--green-success)"></i> Manuais e Chave de Chip
-                </li>
-            </ul>
-        </section>
-
-        <section class="content-section">
-            <h2 class="section-title">Ficha Técnica Detalhada</h2>
+            <h2 class="section-title">Especificações Técnicas</h2>
             <table class="specs-table">
-                <tr><td>Processador</td><td>Helio G99 Octa-Core (Gamer)</td></tr>
-                <tr><td>Memória RAM</td><td>12GB + 12GB (Virtual) = 24GB</td></tr>
-                <tr><td>Armazenamento</td><td>256GB (Aceita cartão até 1TB)</td></tr>
-                <tr><td>Câmeras</td><td>64MP Traseira (Samsung) / 32MP Frontal</td></tr>
-                <tr><td>Bateria</td><td>15.080mAh (Carregamento 33W)</td></tr>
-                <tr><td>Resistência</td><td>IP68, IP69K e Militar MIL-STD-810H</td></tr>
-                <tr><td>Conectividade</td><td>4G Dual Chip, NFC, GPS, Bluetooth 5.2</td></tr>
-                <tr><td>Sistema</td><td>Android 13 (Português Brasil)</td></tr>
-                <tr><td>Tela Principal</td><td>6.7" IPS FHD+ 120Hz</td></tr>
-                <tr><td>Tela Traseira</td><td>1.3" IPS (Notificações e Controle)</td></tr>
+                <tr><td>Modelo</td><td>Blackview BV9300 Pro</td></tr>
+                <tr><td>Tela Principal</td><td>6.7" FHD+ 120Hz</td></tr>
+                <tr><td>Tela Traseira</td><td>1.32" Circular AMOLED</td></tr>
+                <tr><td>Processador</td><td>MediaTek Dimensity 7050 (6nm)</td></tr>
+                <tr><td>Memória RAM</td><td>12GB + 12GB Virtual (24GB Total)</td></tr>
+                <tr><td>Armazenamento</td><td>256GB (Expansível até 2TB)</td></tr>
+                <tr><td>Bateria</td><td>15.080mAh com Carregamento 33W</td></tr>
+                <tr><td>Câmera Traseira</td><td>64MP Samsung (Principal) + 8MP Ultra Wide</td></tr>
+                <tr><td>Câmera Frontal</td><td>32MP Sony</td></tr>
+                <tr><td>Resistência</td><td>IP68 / IP69K / MIL-STD-810H</td></tr>
+                <tr><td>Conectividade</td><td>5G, Wi-Fi 6, Bluetooth 5.2, NFC</td></tr>
+                <tr><td>Sistema</td><td>Android 13 (Doke OS 4.0)</td></tr>
+                <tr><td>Extras</td><td>Lanterna 100 Lumens, Modo Subaquático</td></tr>
             </table>
         </section>
 
         <section class="content-section">
-            <h2 class="section-title">Avaliações do Produto</h2>
-
+            <h2 class="section-title">Avaliações de Clientes</h2>
             <div class="rating-box-header">
+                <span class="rating-score">4.9</span>
                 <div>
-                    <span class="rating-score">4.9</span>
-                    <span style="color: #888;"> de 5</span>
-                </div>
-                <div class="rating-stars">
-                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                    <div class="rating-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div>
+                    <span style="font-size: 0.85rem; color: #666;">Baseado em 1.247 avaliações</span>
                 </div>
             </div>
 
             <div class="review-card">
                 <div class="user-header">
                     <div class="avatar">
-                        <img src="images/comentarios/carlos-roberto.jpg" alt="User">
+                        <img src="images/comentarios/carlos.jpg" alt="User">
                     </div>
                     <div>
-                        <strong>Carlos Roberto</strong>
+                        <strong>Carlos M.</strong>
                         <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                        <span class="review-meta">2025-08-30 11:53 | Variação: Preto/Cinza</span>
+                        <span class="review-meta">2025-09-01 14:32 | Variação: Preto/Verde</span>
                     </div>
                 </div>
-                <p>Celular é bem bonito e robusto. Comprei de presente para o meu pai e ele adorou. A bateria dura a semana toda!</p>
+                <p>Trabalho em obra e já derrubei esse celular umas 10 vezes no concreto. Nem um arranhão! A bateria então é absurda, fico 4 dias sem carregar usando GPS e música o dia todo. Melhor compra que fiz.</p>
                 <div class="review-img">
                     <img src="images/comentarios/review-01.webp" alt="Review 1" onclick="openZoom(this.src)">
+                    <img src="images/comentarios/review-02.webp" alt="Review 2" onclick="openZoom(this.src)">
                 </div>
                 <button class="helpful-btn" onclick="markHelpful(this)">
-                    <i class="far fa-thumbs-up"></i> Útil? (<span class="helpful-count">12</span>)
+                    <i class="far fa-thumbs-up"></i> Útil? (<span class="helpful-count">87</span>)
                 </button>
             </div>
 
             <div class="review-card">
                 <div class="user-header">
                     <div class="avatar">
-                        <img src="images/comentarios/marcos-almeida.jpg" alt="User">
+                        <img src="images/comentarios/marcos.jpg" alt="User">
                     </div>
                     <div>
-                        <strong>Marcos Almeida</strong>
+                        <strong>Marcos R.</strong>
                         <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                        <span class="review-meta">2025-08-29 14:22 | Variação: Verde/Preto</span>
-                    </div>
-                </div>
-                <p>Chegou antes do prazo, bem embalado. Uso na obra e já caiu duas vezes, nem arranhou. Top!</p>
-                <div class="review-img">
-                    <img src="images/comentarios/img-01.webp" alt="Review 2" onclick="openZoom(this.src)">
-                    <img src="images/comentarios/img-02.webp" alt="Review 2" onclick="openZoom(this.src)">
-                </div>
-                <button class="helpful-btn" onclick="markHelpful(this)">
-                    <i class="far fa-thumbs-up"></i> Útil? (<span class="helpful-count">8</span>)
-                </button>
-            </div>
-
-            <div class="review-card">
-                <div class="user-header">
-                    <div class="avatar">
-                        <img src="images/comentarios/gustavo-henrique.jpg" alt="User">
-                    </div>
-                    <div>
-                        <strong>Gustavo Henrique</strong>
-                        <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                        <span class="review-meta">2025-08-28 09:15 | Variação: Preto/Cinza</span>
+                        <span class="review-meta">2025-08-28 09:15 | Variação: Verde/Preto</span>
                     </div>
                 </div>
                 <p>Comprei pra jogar e me surpreendi. Roda COD e Free Fire liso, não esquenta e a tela de 120hz faz muita diferença. Pelo preço tá de graça.</p>
@@ -650,14 +629,16 @@
         Apenas compradores com pedido entregue podem avaliar o produto. Garanta o seu agora!
     </div>
 
+    <!-- STICKY FOOTER COM BOTÃO YAMPI -->
     <div class="sticky-footer">
         <div class="price-footer">
             <div class="old-f">R$ 849,90</div>
             <div class="curr-f">R$ 127,90</div>
         </div>
-        <a href="#yampi-buy-wrap" class="btn-footer" onclick="return irParaYampi(event)">
-            COMPRAR AGORA
-        </a>
+        <div class="yampi-footer-btn">
+            <span class="envio-text-footer"><i class="fas fa-check-circle"></i> Envio Imediato c/ NF</span>
+            <script class="ymp-script" src="https://api.yampi.io/v2/central-achadinhos/public/buy-button/P21O0FTU9S/js"></script>
+        </div>
     </div>
 
     <div id="notify-popup">
@@ -677,13 +658,11 @@
     </div>
 
     <script>
-        // --- 1. CONFIGURAÇÃO DE IMAGENS E CORES DA GALERIA ---
+        // --- 1. CONFIGURAÇÃO DE IMAGENS (APENAS PRETO) ---
         const productImages = [
-            "images/blackview-preto.webp", 
-            "images/blackview-verde.webp",
-            "images/blackview-laranja.webp" 
+            "images/blackview-preto.webp"
         ];
-        const colorNames = ["Preto", "Verde", "Laranja"];
+        const colorNames = ["Preto"];
         let currentImgIndex = 0;
         let selectedColor = "Preto";
         const mainImageElement = document.getElementById('mainImage');
@@ -695,38 +674,11 @@
             if (currentImgIndex >= productImages.length) currentImgIndex = 0;
             if (currentImgIndex < 0) currentImgIndex = productImages.length - 1;
             updateGalleryDisplay();
-            updateSelectedColor();
         }
 
         function setImage(index) {
             currentImgIndex = index;
             updateGalleryDisplay();
-            updateSelectedColor();
-        }
-
-        function selectColor(colorName, index, btnElement) {
-            selectedColor = colorName;
-            document.getElementById('selectedColorName').innerText = colorName;
-            colorButtons.forEach(btn => btn.classList.remove('selected'));
-            btnElement.classList.add('selected');
-            currentImgIndex = index;
-            updateGalleryDisplay();
-            
-            // Salva a cor selecionada no localStorage
-            salvarCorSelecionada();
-        }
-
-        function updateSelectedColor() {
-            selectedColor = colorNames[currentImgIndex];
-            document.getElementById('selectedColorName').innerText = selectedColor;
-            colorButtons.forEach((btn, idx) => {
-                if (idx === currentImgIndex) {
-                    btn.classList.add('selected');
-                } else {
-                    btn.classList.remove('selected');
-                }
-            });
-            salvarCorSelecionada();
         }
 
         function updateGalleryDisplay() {
@@ -743,13 +695,6 @@
 
         // --- 2. SISTEMA DE PERSISTÊNCIA DA COR SELECIONADA ---
         function salvarCorSelecionada() {
-            // Garante que a cor salva é a atualmente selecionada no DOM
-            try {
-                const selectedBtn = document.querySelector('.color-btn.selected');
-                const domColor = selectedBtn && (selectedBtn.getAttribute('data-color') || selectedBtn.dataset.color);
-                if (domColor) { selectedColor = domColor; }
-            } catch (e) {}
-
             const productData = {
                 cor: selectedColor,
                 corIndex: currentImgIndex,
@@ -761,13 +706,11 @@
             };
             localStorage.setItem('checkoutProduct', JSON.stringify(productData));
             
-            // CORREÇÃO: Também salva no checkoutCart para garantir consistência
             const cartData = {
                 cor: selectedColor,
                 quantidade: 1,
                 precoUnitario: 127.90
             };
-            // Preserva quantidade existente se houver
             const existingCart = localStorage.getItem('checkoutCart');
             if (existingCart) {
                 try {
@@ -778,41 +721,6 @@
             localStorage.setItem('checkoutCart', JSON.stringify(cartData));
         }
 
-        // Leva o usuário até o botão da Yampi (mantém o sticky footer útil)
-        function irParaYampi(event){
-            if (event && typeof event.preventDefault === 'function') event.preventDefault();
-
-            // Salva variação/cor como você já faz
-            try { salvarCorSelecionada(); } catch(e) {}
-
-            // Dispara evento do Facebook Pixel
-            if (typeof fbq !== 'undefined') {
-                fbq('track', 'InitiateCheckout');
-            }
-
-            // Rola até o botão Yampi
-            const el = document.getElementById('yampi-buy-wrap');
-            if (el) el.scrollIntoView({ behavior: 'smooth', block: 'center' });
-
-            return false;
-        }
-
-        function iniciarCompra(event) {
-            // Evita navegação direta para garantir disparo do pixel e persistência
-            if (event && typeof event.preventDefault === 'function') event.preventDefault();
-
-            // Salva a cor selecionada antes de redirecionar
-            salvarCorSelecionada();
-
-            // Dispara evento do Facebook Pixel
-            if (typeof fbq !== 'undefined') {
-                fbq('track', 'InitiateCheckout');
-            }
-
-            // Redireciona para o checkout
-            window.location.href = 'https://pay.finaliza.shop/pl/c976dedc37';
-            return false;
-        }
         // --- 3. Lógica do Botão de Comentário ---
         function triggerReviewAlert() {
             var alertBox = document.getElementById("custom-alert");
@@ -820,7 +728,7 @@
 
             setTimeout(function(){ 
                 alertBox.classList.remove("show"); 
-                const buyBtn = document.getElementById('yampi-buy-wrap');
+                const buyBtn = document.querySelector('.yampi-btn-container');
                 if(buyBtn) buyBtn.scrollIntoView({ behavior: 'smooth', block: 'center' });
             }, 3000);
         }
@@ -846,19 +754,61 @@
             }, 1000);
         }
 
-        // --- 6. Geolocalização ---
+        // --- 6. Geolocalização CORRIGIDA ---
         async function getGeo() {
             const msg = document.getElementById('shipping-msg');
+            const fallbackMsg = '<strong>Frete Grátis</strong> para todo o <strong>Brasil</strong>!';
+            
             try {
-                const res = await fetch('https://ipapi.co/json/');
+                // Tenta primeiro com ipapi.co
+                const controller = new AbortController();
+                const timeoutId = setTimeout(() => controller.abort(), 5000);
+                
+                const res = await fetch('https://ipapi.co/json/', {
+                    signal: controller.signal
+                });
+                clearTimeout(timeoutId);
+                
+                if (!res.ok) throw new Error('Resposta não OK');
+                
                 const data = await res.json();
-                if(data.city) {
+                
+                if (data && data.city && data.region) {
+                    msg.innerHTML = `<strong>Frete Grátis</strong> para <strong>${data.city}, ${data.region}</strong> e região!`;
+                } else if (data && data.city) {
                     msg.innerHTML = `<strong>Frete Grátis</strong> para <strong>${data.city}</strong> e região!`;
                 } else {
                     throw new Error("Cidade não detectada");
                 }
-            } catch(e) { 
-                msg.innerHTML = `<strong>Frete Grátis</strong> para todo o <strong>Brasil</strong>!`;
+            } catch(e) {
+                // Tenta API alternativa
+                try {
+                    const controller2 = new AbortController();
+                    const timeoutId2 = setTimeout(() => controller2.abort(), 5000);
+                    
+                    const res2 = await fetch('https://ip-api.com/json/?fields=city,regionName,country', {
+                        signal: controller2.signal
+                    });
+                    clearTimeout(timeoutId2);
+                    
+                    if (!res2.ok) throw new Error('Resposta não OK');
+                    
+                    const data2 = await res2.json();
+                    
+                    if (data2 && data2.city) {
+                        const region = data2.regionName || '';
+                        if (region) {
+                            msg.innerHTML = `<strong>Frete Grátis</strong> para <strong>${data2.city}, ${region}</strong> e região!`;
+                        } else {
+                            msg.innerHTML = `<strong>Frete Grátis</strong> para <strong>${data2.city}</strong> e região!`;
+                        }
+                    } else {
+                        throw new Error("Cidade não detectada na API alternativa");
+                    }
+                } catch(e2) {
+                    // Fallback final
+                    msg.innerHTML = fallbackMsg;
+                }
             }
         }
 
@@ -887,27 +837,7 @@
         window.onload = function () {
             startTimer(60 * 15, document.querySelector('#countdown'));
             getGeo();
-            
-            // Recupera cor salva anteriormente (se existir)
-            const savedProduct = localStorage.getItem('checkoutProduct');
-            if (savedProduct) {
-                try {
-                    const data = JSON.parse(savedProduct);
-                    if (data.corIndex !== undefined && data.corIndex >= 0 && data.corIndex < productImages.length) {
-                        currentImgIndex = data.corIndex;
-                        selectedColor = data.cor;
-                        updateGalleryDisplay();
-                        document.getElementById('selectedColorName').innerText = selectedColor;
-                        colorButtons.forEach((btn, idx) => {
-                            if (idx === currentImgIndex) {
-                                btn.classList.add('selected');
-                            } else {
-                                btn.classList.remove('selected');
-                            }
-                        });
-                    }
-                } catch(e) {}
-            }
+            salvarCorSelecionada();
         };
     </script>
 
