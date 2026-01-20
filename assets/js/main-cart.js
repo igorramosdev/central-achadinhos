@@ -92,7 +92,7 @@
             }
 
             // Redireciona para a página de endereço
-            window.location.href = 'https://seguro.centralachadinhos.shop/r/BR8UCNAUS7';
+            window.location.href = 'https://pay.yampi.com.br/r/TQL4LAMM2Q';
         };
 
         // Função decorativa - não atualiza mais o badge

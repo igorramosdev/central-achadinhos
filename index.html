@@ -2,6 +2,9 @@
 <html lang="pt-BR">
 <head>
     <script>
+    /* 
+       CONFIGURE SEU PIXEL AQUI
+    */
     !function(f,b,e,v,n,t,s)
     {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
     n.callMethod.apply(n,arguments):n.queue.push(arguments)};
@@ -10,15 +13,15 @@
     t.src=v;s=b.getElementsByTagName(e)[0];
     s.parentNode.insertBefore(t,s)}(window, document,'script',
     'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '855094957234891');
+    fbq('init', 'SEU_ID_DO_PIXEL_AQUI'); 
     fbq('track', 'PageView');
     </script>
     <noscript><img height="1" width="1" style="display:none"
-    src="https://www.facebook.com/tr?id=855094957234891&ev=PageView&noscript=1"
+    src="https://www.facebook.com/tr?id=SEU_ID_DO_PIXEL_AQUI&ev=PageView&noscript=1"
     /></noscript>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blackview BV9300 PRO - Oferta Oficial</title>
+    <title>Mini Glock G17 - Chaveiro Tático Realista</title>
 
     <link rel="icon" type="image/png" href="images/icon_favicon.png">
 
@@ -122,8 +125,33 @@
         }
         .cart-animating { animation: cartBump 0.3s ease-in-out; }
 
-        /* HERO SECTION */
-        .main-product { background: white; margin-top: 20px; border-radius: 8px; overflow: hidden; box-shadow: 0 1px 2px rgba(0,0,0,0.05); display: flex; flex-wrap: wrap; }
+        /* HERO SLIDER (NOVO) */
+        .hero-slider {
+            position: relative;
+            width: 100%;
+            padding-top: 40%; /* Aspect Ratio do banner (ajuste conforme necessário) */
+            overflow: hidden;
+            border-radius: 8px;
+            margin-top: 15px;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+            background: #fff;
+        }
+        .slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+            object-fit: cover;
+        }
+        .slide.active {
+            opacity: 1;
+        }
+
+        /* HERO SECTION PRODUCT */
+        .main-product { background: white; margin-top: 15px; border-radius: 8px; overflow: hidden; box-shadow: 0 1px 2px rgba(0,0,0,0.05); display: flex; flex-wrap: wrap; }
 
         .gallery { flex: 1; min-width: 300px; padding: 20px; position: relative; }
         .main-img-container { position: relative; width: 100%; overflow: hidden; border-radius: 8px; border: 1px solid #eee; }
@@ -140,8 +168,8 @@
         .prev { left: 10px; }
         .next { right: 10px; }
 
-        .thumbnails { display: flex; gap: 8px; margin-top: 10px; justify-content: center; }
-        .thumbnails img { width: 60px; height: 60px; object-fit: cover; border-radius: 4px; cursor: pointer; border: 1px solid #eee; opacity: 0.6; transition: 0.3s; }
+        .thumbnails { display: flex; gap: 8px; margin-top: 10px; justify-content: center; flex-wrap: wrap;}
+        .thumbnails img { width: 55px; height: 55px; object-fit: cover; border-radius: 4px; cursor: pointer; border: 1px solid #eee; opacity: 0.6; transition: 0.3s; }
         .thumbnails img.active { border: 2px solid var(--shopee-orange); opacity: 1; }
 
         .product-info { flex: 1.2; padding: 20px; min-width: 300px; }
@@ -156,9 +184,8 @@
         }
         .color-btn:hover { transform: scale(1.1); }
         .color-btn.selected { border: 2px solid var(--shopee-orange); box-shadow: 0 0 5px rgba(238,77,45,0.5); }
+        
         .c-black { background-color: #222; }
-        .c-green { background-color: #3b5c3b; }
-        .c-orange { background-color: #e67e22; }
 
         .price-box { background: #fafafa; padding: 15px; margin: 15px 0; border-left: 4px solid var(--shopee-orange); border-radius: 0 8px 8px 0; position: relative; }
         .discount-tag { position: absolute; top: -12px; right: 10px; background: #ff4b2b; color: white; font-size: 0.7rem; font-weight: bold; padding: 4px 8px; border-radius: 4px; text-transform: uppercase; box-shadow: 0 2px 5px rgba(0,0,0,0.2); }
@@ -189,28 +216,13 @@
         }
         @keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.02); } 100% { transform: scale(1); } }
 
-        /* --- NOVO BOTÃO ADICIONAR AO CARRINHO (ESTILO SHOPEE CLARO) --- */
-        .btn-add-cart {
-            background-color: #fff0f0;
-            color: #ee4d2d;
-            border: 1px solid #ee4d2d;
-            text-decoration: none; display: flex; align-items: center; justify-content: center; width: 100%;
-            padding: 15px; font-size: 1.1rem; font-weight: 500;
-            border-radius: 6px; cursor: pointer; gap: 10px;
-            margin-top: 10px;
-            transition: 0.2s;
-        }
-        .btn-add-cart:hover {
-            background-color: #ffe6e6;
-        }
-
         .content-section { background: white; margin-top: 12px; padding: 20px; border-radius: 8px; }
         .section-title { font-size: 1.2rem; font-weight: 500; border-bottom: 2px solid var(--shopee-orange); padding-bottom: 10px; margin-bottom: 15px; }
 
         .feature-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; }
         .feature-card { text-align: center; padding: 15px; border: 1px solid #eee; border-radius: 8px; transition: transform 0.3s, box-shadow 0.3s; }
         .feature-card:hover { transform: translateY(-5px); box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
-        .feature-card img { width: 100%; max-height: 200px; object-fit: cover; border-radius: 4px; margin-bottom: 10px; }
+        .feature-card img { width: 100%; max-height: 200px; object-fit: contain; border-radius: 4px; margin-bottom: 10px; }
         .feature-card h3 { font-size: 1rem; color: var(--shopee-orange); margin-bottom: 8px; }
         .feature-card p { font-size: 0.85rem; color: #666; line-height: 1.5; }
 
@@ -224,7 +236,7 @@
 
         .review-card { background: #fafafa; padding: 15px; border-radius: 8px; margin-bottom: 15px; }
         .user-header { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
-        .avatar { width: 40px; height: 40px; border-radius: 50%; overflow: hidden; }
+        .avatar { width: 40px; height: 40px; border-radius: 50%; overflow: hidden; background: #ddd; display: flex; align-items: center; justify-content: center; font-weight: bold; color: #666;}
         .avatar img { width: 100%; height: 100%; object-fit: cover; }
         .stars { color: #ffc107; font-size: 0.8rem; }
         .review-meta { font-size: 0.75rem; color: #999; }
@@ -266,8 +278,6 @@
         .notify-content p { font-size: 0.8rem; margin: 0; color: #333; }
         .notify-time { font-size: 0.7rem; color: #999; }
 
-        .whatsapp-float { position: fixed; bottom: 90px; right: 20px; background: #25D366; color: white; width: 55px; height: 55px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.8rem; box-shadow: 0 3px 10px rgba(0,0,0,0.2); z-index: 997; }
-
         #image-modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); z-index: 9999; justify-content: center; align-items: center; }
         #image-modal.active { display: flex; }
         #image-modal img { max-width: 90%; max-height: 90%; border-radius: 8px; }
@@ -282,21 +292,6 @@
         #custom-alert.show { opacity: 1; visibility: visible; transform: translate(-50%, -50%) scale(1); }
         #custom-alert i { font-size: 2.5rem; color: #d73211; margin-bottom: 10px; }
 
-        /* --- ESTILOS DO BANNER RESPONSIVO --- */
-        .banner-container {
-            width: 100%;
-            margin-top: 15px;
-            margin-bottom: 5px;
-            border-radius: 8px;
-            overflow: hidden;
-        }
-        .banner-container img {
-            width: 100%;
-            height: auto;
-            display: block;
-            border-radius: 8px;
-        }
-
         /* --- MEDIA QUERIES --- */
         @media (max-width: 768px) {
             .header-info { display: none; }
@@ -304,30 +299,10 @@
             .logo img { height: 32px; }
             .search-container { height: 38px; }
             .search-btn { width: 50px; }
-            
-            /* Melhoria na Galeria de Imagens para Mobile */
-            .gallery { 
-                padding: 10px 15px; 
-            }
-            .thumbnails {
-                justify-content: flex-start; /* Alinha à esquerda para permitir scroll */
-                overflow-x: auto; /* Habilita rolagem horizontal */
-                padding-bottom: 5px;
-                scroll-behavior: smooth;
-                -webkit-overflow-scrolling: touch; /* Rolagem suave no iOS */
-            }
-            .thumbnails::-webkit-scrollbar {
-                height: 4px; /* Barra de rolagem discreta */
-            }
-            .thumbnails::-webkit-scrollbar-thumb {
-                background: #ccc;
-                border-radius: 4px;
-            }
-            .thumbnails img {
-                flex-shrink: 0; /* Impede que as imagens encolham */
-                width: 55px; /* Tamanho levemente ajustado para mobile */
-                height: 55px;
-            }
+            .gallery { padding: 10px 15px; }
+            .thumbnails { justify-content: flex-start; overflow-x: auto; padding-bottom: 5px; scroll-behavior: smooth; -webkit-overflow-scrolling: touch; }
+            .thumbnails img { flex-shrink: 0; width: 55px; height: 55px; }
+            .hero-slider { padding-top: 50%; /* Banner mais alto no mobile */ }
         }
     </style>
 </head>
@@ -351,111 +326,114 @@
     </header>
 
     <div class="container">
+        <!-- SLIDER MODERNO ADICIONADO AQUI -->
+        <div class="hero-slider">
+            <img src="images/banner-glock.webp" class="slide active">
+            <img src="images/banner-entregador.webp" class="slide">
+        </div>
+
         <section class="main-product">
             <div class="gallery">
                 <div class="main-img-container">
-                    <img id="mainImage" class="main-img" src="images/blakview-preto/BV9300Pro-Black_01.webp" alt="Blackview BV9300 Pro">
+                    <img id="mainImage" class="main-img" src="images/glock/glock-01.webp" alt="Mini Glock G17">
                     <button class="nav-arrow prev" onclick="changeImage(-1)">&#10094;</button>
                     <button class="nav-arrow next" onclick="changeImage(1)">&#10095;</button>
                 </div>
                 <div class="thumbnails">
-                    <img class="thumb active" src="images/blakview-preto/BV9300Pro-Black_01.webp" alt="Preto" onclick="setImage(0)">
-                    <img class="thumb" src="images/blakview-preto/BV9300Pro-Black_02.webp" alt="Preto" onclick="setImage(1)">
-                    <img class="thumb" src="images/blakview-preto/BV9300Pro-Black_03.webp" alt="Preto" onclick="setImage(2)">
-                    <img class="thumb" src="images/blakview-preto/BV9300Pro-Black_04.webp" alt="Preto" onclick="setImage(3)">
-                    <img class="thumb" src="images/blakview-preto/BV9300Pro-Black_05.webp" alt="Preto" onclick="setImage(4)">
-                    <img class="thumb" src="images/blakview-preto/BV9300Pro-Black_06.webp" alt="Preto" onclick="setImage(5)">
-                    <img class="thumb" src="images/blakview-preto/BV9300Pro-Black_07.webp" alt="Preto" onclick="setImage(6)">
+                    <img class="thumb active" src="images/glock/glock-01.webp" onclick="setImage(0)">
+                    <img class="thumb" src="images/glock/glock-02.webp" onclick="setImage(1)">
+                    <img class="thumb" src="images/glock/glock-03.webp" onclick="setImage(2)">
+                    <img class="thumb" src="images/glock/glock-04.webp" onclick="setImage(3)">
+                    <img class="thumb" src="images/glock/glock-05.webp" onclick="setImage(4)">
+                    <img class="thumb" src="images/glock/glock-06.webp" onclick="setImage(5)">
                 </div>
             </div>
 
             <div class="product-info">
-                <img src="images/indicado.png" alt="Indicado" style="height: 22px; vertical-align: middle; margin-right: 8px;">
-                <h1 style="display: inline;">Blackview BV9300 Pro 5G – 24GB RAM, 256GB, Bateria 15.080mAh, Ultra Resistente à Água, Poeira e Quedas</h1>
+                <img src="https://cdn-icons-png.flaticon.com/512/190/190411.png" alt="Indicado" style="height: 22px; vertical-align: middle; margin-right: 8px;">
+                <h1 style="display: inline;">Chaveiro Tático Glock G17 Miniatura - Ejeta Cápsulas (Realista), Anti-Stress & Colecionável</h1>
                 
-                <p class="scarcity"><i class="fas fa-fire"></i> Resta apenas <strong>7</strong> unidades no lote promocional!</p>
+                <p class="scarcity"><i class="fas fa-fire"></i> Viral no TikTok! Restam apenas <strong>12</strong> unidades.</p>
                 <div class="stock-bar-container"><div class="stock-bar-fill"></div></div>
 
                 <div class="color-section">
                     <p class="color-title">Cor Selecionada: <strong id="selectedColorName">Preto</strong></p>
                     <div class="color-options">
                         <div class="color-btn c-black selected" onclick="selectColor('Preto', 0, this)" data-color="Preto"></div>
-                        </div>
+                    </div>
                 </div>
 
                 <div class="price-box">
-                    <div class="discount-tag">89% OFF - ÚLTIMAS UNIDADES</div>
-                    <div class="old-price">R$ 849,90</div>
-                    <div class="current-price">R$ 127,90</div>
+                    <div class="discount-tag">80% OFF - OFERTA RELÂMPAGO</div>
+                    <div class="old-price">R$ 97,90</div>
+                    <div class="current-price">R$ 19,90</div>
                     <div class="pix-price-info">
                         <img src="https://img.icons8.com/color/200/pix.png" alt="Pix" class="pix-logo">
-                        Pagamento no Pix com Aprovação Imediata
+                        Leve 3 e ganhe Frete Grátis
                     </div>
                 </div>
 
                 <div class="countdown-container">
-                    <span class="countdown-text">Essa oferta expira em:</span>
-                    <span class="timer" id="countdown">15:00</span>
+                    <span class="countdown-text">Preço sobe em:</span>
+                    <span class="timer" id="countdown">10:00</span>
                 </div>
 
                 <div class="shipping-box">
                     <i class="fas fa-truck"></i>
-                    <span id="shipping-msg"><strong>Frete Grátis</strong> para todo o <strong>Brasil</strong>!</span>
+                    <span id="shipping-msg"><strong>Envio Imediato</strong> para todo o <strong>Brasil</strong>!</span>
                 </div>
 
                 <a href="javascript:void(0);" class="btn-buy" onclick="iniciarCompra()">
-                    COMPRAR AGORA <small style="display:block; font-weight:normal; font-size:0.75rem; margin-top:3px;">Envio Imediato com Nota Fiscal</small>
+                    COMPRAR AGORA <small style="display:block; font-weight:normal; font-size:0.75rem; margin-top:3px;">Garantia de Satisfação + Nota Fiscal</small>
                 </a>
-                
-                </div>
+            </div>
         </section>
 
-        <div class="banner-container">
-            <img src="images/banner-entregador.webp" alt="Entrega Segura">
-        </div>
+        <!-- BANNER ANTIGO REMOVIDO DAQUI -->
 
         <section class="content-section">
-            <h2 class="section-title"><i class="fas fa-play-circle"></i> Veja o BV9300 Pro em Ação</h2>
+            <h2 class="section-title"><i class="fas fa-play-circle"></i> Veja o Chaveiro em Ação</h2>
             <p style="color: #555; font-size: 0.95rem; line-height: 1.6; margin-bottom: 20px; text-align: center;">
-                Descubra por que o BV9300 Pro é a escolha ideal para quem busca resistência extrema e desempenho superior. 
-                Com bateria de 15.080mAh que dura dias, certificação militar e construção robusta, ele acompanha você 
-                no trabalho, nas trilhas e no dia a dia sem medo de quedas, água ou poeira.
+                O chaveiro mais estiloso do ano! Veja como funciona o sistema de ejeção de cápsulas e o desmonte realista. 
+                Perfeito para passar o tempo e aliviar o estresse.
             </p>
             <div class="video-container" style="display: flex; justify-content: center; margin-bottom: 10px;">
-                <div class="video-wrapper" style="width: 100%; max-width: 480px; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.15);">
+                <div class="video-wrapper" style="width: 100%; max-width: 400px; aspect-ratio: 9/16; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.15);">
                     <iframe 
-                        src="https://player.vimeo.com/video/1154303821?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&amp;autoplay=1"
-                        style="width: 100%; aspect-ratio: 9/16; display: block; border: none;"
-                        allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
-                        referrerpolicy="strict-origin-when-cross-origin"
-                        title="blackview-pv">
+                        src="https://player.vimeo.com/video/1156495917?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&amp;autoplay=1&amp;loop=1" 
+                        width="100%" 
+                        height="100%" 
+                        frameborder="0" 
+                        allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" 
+                        referrerpolicy="strict-origin-when-cross-origin" 
+                        title="pistola-glock">
                     </iframe>
                 </div>
             </div>
         </section>
 
         <section class="content-section">
-            <h2 class="section-title">Por que escolher o BV9300 Pro?</h2>
+            <h2 class="section-title">Por que você precisa desse Chaveiro?</h2>
             <div class="feature-grid">
                 <div class="feature-card">
-                    <img src="images/resistencia.webp" alt="Resistência">
-                    <h3><i class="fas fa-shield-alt"></i> Tanque de Guerra (IP68/IP69K)</h3>
-                    <p>Não precisa ter cuidado. Ele possui certificação militar <strong>MIL-STD-810H</strong>. É resistente à água (1.5m), poeira, quedas de 1.2m, temperaturas extremas (-30º a 80º) e alta pressão.</p>
+                    <i class="fas fa-cog" style="font-size: 3rem; color: #666; margin-bottom: 10px;"></i>
+                    <h3><i class="fas fa-hammer"></i> Mecanismo Realista</h3>
+                    <p>O ferrolho (slide) corre de verdade! Ao puxar para trás, ele engatilha e ejeta a cápsula fake, igual a uma G17 real. O carregador também é removível.</p>
                 </div>
                 <div class="feature-card">
-                    <img src="images/lanterna-bateria.webp" alt="Bateria">
-                    <h3><i class="fas fa-bolt"></i> Energia Infinita + Lanterna Tática</h3>
-                    <p>Bateria massiva de <strong>15.080mAh</strong> que dura dias longe da tomada. Possui carregamento rápido de 33W e uma <strong>Lanterna de 100 Lumens</strong> integrada, capaz de iluminar ambientes inteiros.</p>
+                    <i class="fas fa-hand-sparkles" style="font-size: 3rem; color: #666; margin-bottom: 10px;"></i>
+                    <h3><i class="fas fa-smile"></i> Anti-Stress (Fidget)</h3>
+                    <p>Viciante de manusear. O som do "click-clack" metálico é extremamente satisfatório. Ótimo para manter as mãos ocupadas enquanto trabalha ou estuda.</p>
                 </div>
                 <div class="feature-card">
-                    <img src="images/tela-traseira.webp" alt="Tela Traseira">
-                    <h3><i class="fas fa-mobile-alt"></i> Tela Dupla & Câmeras Samsung</h3>
-                    <p>Inovadora tela traseira para ver notificações, relógio e controlar músicas. Câmera principal <strong>Samsung de 64MP</strong> + Frontal de 32MP para fotos incríveis até debaixo d'água.</p>
+                    <i class="fas fa-key" style="font-size: 3rem; color: #666; margin-bottom: 10px;"></i>
+                    <h3><i class="fas fa-gem"></i> Estilo Único</h3>
+                    <p>Um acessório que chama atenção onde você for. Prenda na chave do carro, na mochila ou no cinto. Acabamento premium em liga metálica e polímero.</p>
                 </div>
                 <div class="feature-card">
-                    <img src="images/desempenho.webp" alt="Desempenho">
-                    <h3><i class="fas fa-microchip"></i> Desempenho de Topo de Linha</h3>
-                    <p>Processador Helio G99, Tela de 120Hz fluida e até <strong>24GB de RAM</strong> (12GB Físico + 12GB Virtual). Armazenamento de 256GB expansível até 1TB.</p>
+                    <i class="fas fa-gift" style="font-size: 3rem; color: #666; margin-bottom: 10px;"></i>
+                    <h3><i class="fas fa-box"></i> Presente Perfeito</h3>
+                    <p>Acompanha estojo de metal para presente. Ideal para entusiastas de tática, airsoft, militarismo ou quem curte gadgets diferenciados.</p>
                 </div>
             </div>
         </section>
@@ -464,41 +442,37 @@
             <h2 class="section-title"><i class="fas fa-box-open"></i> O que vem na caixa?</h2>
             <ul style="list-style:none;">
                 <li style="padding: 10px; border-bottom: 1px solid #f0f0f0; display:flex; align-items:center; gap:10px;">
-                    <i class="fas fa-check" style="color:var(--green-success)"></i> 1x Smartphone Blackview BV9300 Pro
+                    <i class="fas fa-check" style="color:var(--green-success)"></i> 1x Chaveiro Miniatura G17 Preto
                 </li>
                 <li style="padding: 10px; border-bottom: 1px solid #f0f0f0; display:flex; align-items:center; gap:10px;">
-                    <i class="fas fa-check" style="color:var(--green-success)"></i> 1x Carregador Turbo (33W)
+                    <i class="fas fa-check" style="color:var(--green-success)"></i> 1x Carregador (Magazine) Removível
                 </li>
                 <li style="padding: 10px; border-bottom: 1px solid #f0f0f0; display:flex; align-items:center; gap:10px;">
-                    <i class="fas fa-check" style="color:var(--green-success)"></i> 1x Cabo USB Tipo-C
+                    <i class="fas fa-check" style="color:var(--green-success)"></i> 6x Cápsulas "Fake" (Douradas)
                 </li>
                 <li style="padding: 10px; border-bottom: 1px solid #f0f0f0; display:flex; align-items:center; gap:10px;">
-                    <i class="fas fa-check" style="color:var(--green-success)"></i> 1x Película Protetora (Já aplicada)
+                    <i class="fas fa-check" style="color:var(--green-success)"></i> 1x Corrente de Chaveiro Premium
                 </li>
-                <li style="padding: 10px; display:flex; align-items:center; gap:10px;">
-                    <i class="fas fa-check" style="color:var(--green-success)"></i> Manuais e Chave de Chip
+                 <li style="padding: 10px; display:flex; align-items:center; gap:10px;">
+                    <i class="fas fa-check" style="color:var(--green-success)"></i> 1x Pano de Limpeza e Estojo
                 </li>
             </ul>
         </section>
 
         <section class="content-section">
-            <h2 class="section-title">Ficha Técnica Detalhada</h2>
+            <h2 class="section-title">Ficha Técnica</h2>
             <table class="specs-table">
-                <tr><td>Processador</td><td>Helio G99 Octa-Core (Gamer)</td></tr>
-                <tr><td>Memória RAM</td><td>12GB + 12GB (Virtual) = 24GB</td></tr>
-                <tr><td>Armazenamento</td><td>256GB (Aceita cartão até 1TB)</td></tr>
-                <tr><td>Câmeras</td><td>64MP Traseira (Samsung) / 32MP Frontal</td></tr>
-                <tr><td>Bateria</td><td>15.080mAh (Carregamento 33W)</td></tr>
-                <tr><td>Resistência</td><td>IP68, IP69K e Militar MIL-STD-810H</td></tr>
-                <tr><td>Conectividade</td><td>4G Dual Chip, NFC, GPS, Bluetooth 5.2</td></tr>
-                <tr><td>Sistema</td><td>Android 13 (Português Brasil)</td></tr>
-                <tr><td>Tela Principal</td><td>6.7" IPS FHD+ 120Hz</td></tr>
-                <tr><td>Tela Traseira</td><td>1.3" IPS (Notificações e Controle)</td></tr>
+                <tr><td>Modelo</td><td>G17 Miniatura (Escala 1:3)</td></tr>
+                <tr><td>Material</td><td>Polímero de Alta Densidade + Liga Metálica</td></tr>
+                <tr><td>Tamanho</td><td>Aproximadamente 6cm x 4cm</td></tr>
+                <tr><td>Funções</td><td>Slide móvel, Retém do ferrolho funcional, Ejeção, Mag Release</td></tr>
+                <tr><td>Peso</td><td>Aprox. 30g (Leve e Resistente)</td></tr>
+                <tr><td>Segurança</td><td>Não dispara projéteis reais (apenas brinquedo)</td></tr>
             </table>
         </section>
 
         <section class="content-section">
-            <h2 class="section-title">Avaliações do Produto</h2>
+            <h2 class="section-title">Avaliações de Quem Comprou</h2>
 
             <div class="rating-box-header">
                 <div>
@@ -510,102 +484,114 @@
                 </div>
             </div>
 
+            <!-- Comentário 01 -->
             <div class="review-card">
                 <div class="user-header">
                     <div class="avatar">
-                        <img src="images/comentarios/carlos-roberto.jpg" alt="User">
+                        <img src="images/comentarios/ana.jpg" alt="Ana">
                     </div>
                     <div>
-                        <strong>Carlos Roberto</strong>
+                        <strong>Ana N.</strong>
                         <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                        <span class="review-meta">2025-08-30 11:53 | Variação: Preto/Cinza</span>
+                        <span class="review-meta">Variação: Preto</span>
                     </div>
                 </div>
-                <p>Celular é bem bonito e robusto. Comprei de presente para o meu pai e ele adorou. A bateria dura a semana toda!</p>
+                <p>É muito linda... réplica perfeita... É a segunda vez que eu compro.... chegou bem rápido....podem comprar... é perfeita</p>
                 <div class="review-img">
-                    <img src="images/comentarios/review-01.webp" alt="Review 1" onclick="openZoom(this.src)">
+                    <img src="images/glock/comentarios/img-01.webp" onclick="openZoom(this.src)">
+                    <img src="images/glock/comentarios/img-02.webp" onclick="openZoom(this.src)">
+                    <img src="images/glock/comentarios/img-03.webp" onclick="openZoom(this.src)">
                 </div>
                 <button class="helpful-btn" onclick="markHelpful(this)">
-                    <i class="far fa-thumbs-up"></i> Útil? (<span class="helpful-count">12</span>)
+                    <i class="far fa-thumbs-up"></i> Útil? (<span class="helpful-count">42</span>)
                 </button>
             </div>
 
+            <!-- Comentário 02 -->
             <div class="review-card">
                 <div class="user-header">
                     <div class="avatar">
-                        <img src="images/comentarios/marcos-almeida.jpg" alt="User">
+                        <img src="images/comentarios/carlos.jpg" alt="Carlos">
                     </div>
                     <div>
-                        <strong>Marcos Almeida</strong>
+                        <strong>Carlos R.</strong>
                         <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                        <span class="review-meta">2025-08-29 14:22 | Variação: Verde/Preto</span>
+                        <span class="review-meta">Variação: Preto</span>
                     </div>
                 </div>
-                <p>Chegou antes do prazo, bem embalado. Uso na obra e já caiu duas vezes, nem arranhou. Top!</p>
+                <p>Entrega rápida e o produto é de ótima qualidade. Super indico.</p>
                 <div class="review-img">
-                    <img src="images/comentarios/img-01.webp" alt="Review 2" onclick="openZoom(this.src)">
-                    <img src="images/comentarios/img-02.webp" alt="Review 2" onclick="openZoom(this.src)">
-                </div>
-                <button class="helpful-btn" onclick="markHelpful(this)">
-                    <i class="far fa-thumbs-up"></i> Útil? (<span class="helpful-count">8</span>)
-                </button>
-            </div>
-
-            <div class="review-card">
-                <div class="user-header">
-                    <div class="avatar">
-                        <img src="images/comentarios/gustavo-henrique.jpg" alt="User">
-                    </div>
-                    <div>
-                        <strong>Gustavo Henrique</strong>
-                        <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                        <span class="review-meta">2025-08-28 09:15 | Variação: Preto/Cinza</span>
-                    </div>
-                </div>
-                <p>Comprei pra jogar e me surpreendi. Roda COD e Free Fire liso, não esquenta e a tela de 120hz faz muita diferença. Pelo preço tá de graça.</p>
-                <div class="review-img">
-                    <img src="images/comentarios/img-03.webp" alt="Review 3" onclick="openZoom(this.src)">
-                    <img src="images/comentarios/img-04.webp" alt="Review 3" onclick="openZoom(this.src)">
-                </div>
-                <button class="helpful-btn" onclick="markHelpful(this)">
-                    <i class="far fa-thumbs-up"></i> Útil? (<span class="helpful-count">24</span>)
-                </button>
-            </div>
-
-            <div class="review-card">
-                <div class="user-header">
-                    <div class="avatar">
-                        <img src="images/comentarios/fernanda.jpg" alt="User">
-                    </div>
-                    <div>
-                        <strong>Fernanda S.</strong>
-                        <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                        <span class="review-meta">2025-08-27 18:40 | Variação: Laranja/Preto</span>
-                    </div>
-                </div>
-                <p>Amei as câmeras! Achei que por ser celular 'bruto' a câmera seria ruim, mas a traseira de 64MP tira fotos incríveis. O modo subaquático funciona mesmo!</p>
-                <div class="review-img">
-                    <img src="images/comentarios/review-03.webp" alt="Review 3" onclick="openZoom(this.src)">
+                    <img src="images/glock/comentarios/img-04.webp" onclick="openZoom(this.src)">
                 </div>
                 <button class="helpful-btn" onclick="markHelpful(this)">
                     <i class="far fa-thumbs-up"></i> Útil? (<span class="helpful-count">15</span>)
                 </button>
             </div>
 
+            <!-- Comentário 03 -->
             <div class="review-card">
                 <div class="user-header">
                     <div class="avatar">
-                        <img src="images/comentarios/juliana.jpg" alt="User">
+                        <img src="images/comentarios/larissa.jpg" alt="Larissa">
                     </div>
                     <div>
-                        <strong>Juliana M.</strong>
-                        <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div>
-                        <span class="review-meta">2025-08-25 10:05 | Variação: Preto/Cinza</span>
+                        <strong>Larissa S.</strong>
+                        <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        <span class="review-meta">Variação: Preto</span>
                     </div>
                 </div>
-                <p>Fiquei com medo de comprar, mas chegou direitinho em 3 dias aqui em Minas. Veio lacrado, original. O carregador é muito rápido.</p>
+                <p>Amei!! O chaveiro funciona perfeitamente é igualzinho o anúncio,chegou super rápido antes do Prazo podem comprar sem medo vendedor excelente.</p>
+                <div class="review-img">
+                    <img src="images/glock/comentarios/img-05.webp" onclick="openZoom(this.src)">
+                </div>
                 <button class="helpful-btn" onclick="markHelpful(this)">
-                    <i class="far fa-thumbs-up"></i> Útil? (<span class="helpful-count">5</span>)
+                    <i class="far fa-thumbs-up"></i> Útil? (<span class="helpful-count">28</span>)
+                </button>
+            </div>
+
+            <!-- Comentário 04 -->
+            <div class="review-card">
+                <div class="user-header">
+                    <div class="avatar">
+                        <img src="images/comentarios/ricardo.jpg" alt="Ricardo">
+                    </div>
+                    <div>
+                        <strong>Ricardo P.</strong>
+                        <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        <span class="review-meta">Variação: Preto</span>
+                    </div>
+                </div>
+                <p>Chaveiro muito bonito, bem acabado e de ótima qualidade. Chegou certinho e dentro do prazo. Recomendo</p>
+                <div class="review-img">
+                    <img src="images/glock/comentarios/img-06.webp" onclick="openZoom(this.src)">
+                </div>
+                <button class="helpful-btn" onclick="markHelpful(this)">
+                    <i class="far fa-thumbs-up"></i> Útil? (<span class="helpful-count">11</span>)
+                </button>
+            </div>
+
+            <!-- Comentário 05 -->
+            <div class="review-card">
+                <div class="user-header">
+                    <div class="avatar">
+                        <img src="images/comentarios/maria.jpg" alt="Maria">
+                    </div>
+                    <div>
+                        <strong>Maria L.</strong>
+                        <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        <span class="review-meta">Variação: Preto</span>
+                    </div>
+                </div>
+                <p>Produto ótimo, foi presente pro meu marido. Ele amou kkkkk pareceu até criança quando viu, não recomendo desmontar caso não entenda muito bem. Meu marido é militar e mesmo assim teve dificuldade por conta do tamanho das peças, beeem pequenas kkkkk realmente Produto de qualidade, pretendo comprar de outro modelo!</p>
+                <div class="review-img">
+                    <img src="images/glock/comentarios/img-07.webp" onclick="openZoom(this.src)">
+                    <img src="images/glock/comentarios/img-08.webp" onclick="openZoom(this.src)">
+                    <img src="images/glock/comentarios/img-09.webp" onclick="openZoom(this.src)">
+                    <img src="images/glock/comentarios/img-10.webp" onclick="openZoom(this.src)">
+                    <img src="images/glock/comentarios/img-11.webp" onclick="openZoom(this.src)">
+                </div>
+                <button class="helpful-btn" onclick="markHelpful(this)">
+                    <i class="far fa-thumbs-up"></i> Útil? (<span class="helpful-count">56</span>)
                 </button>
             </div>
 
@@ -618,23 +604,18 @@
             <h2 class="section-title">Perguntas Frequentes</h2>
 
             <div class="faq-item">
-                <div class="faq-question"><span>O produto é original e tem Nota Fiscal?</span> <i class="fas fa-chevron-down"></i></div>
-                <div class="faq-answer"><p>Sim! Produto 100% original Blackview, lacrado na caixa versão Global. Acompanha Nota Fiscal em seu nome.</p></div>
+                <div class="faq-question"><span>Isso é uma arma de verdade?</span> <i class="fas fa-chevron-down"></i></div>
+                <div class="faq-answer"><p>Não! É apenas um chaveiro miniatura (brinquedo/colecionável) em escala reduzida. Não possui capacidade de disparar nenhum tipo de projétil, apenas ejeta as cápsulas decorativas.</p></div>
             </div>
 
             <div class="faq-item">
-                <div class="faq-question"><span>Por que o preço está tão baixo?</span> <i class="fas fa-chevron-down"></i></div>
-                <div class="faq-answer"><p>É uma queima de estoque das últimas 7 unidades do lote antigo. Precisamos liberar espaço no depósito, por isso o desconto de 85%.</p></div>
+                <div class="faq-question"><span>Qual o tamanho?</span> <i class="fas fa-chevron-down"></i></div>
+                <div class="faq-answer"><p>É bem pequeno e portátil, ideal para bolso. Mede aproximadamente 6cm de comprimento.</p></div>
             </div>
 
             <div class="faq-item">
-                <div class="faq-question"><span>Tem garantia?</span> <i class="fas fa-chevron-down"></i></div>
-                <div class="faq-answer"><p>Sim, garantia de 90 dias contra defeitos de fabricação e garantia de entrega segura.</p></div>
-            </div>
-
-             <div class="faq-item">
-                <div class="faq-question"><span>O que vem na caixa?</span> <i class="fas fa-chevron-down"></i></div>
-                <div class="faq-answer"><p>1x Blackview BV9300 Pro, 1x Carregador Rápido 33W, 1x Cabo USB-C, 1x Película de Vidro (aplicada), Manuais e Chave SIM.</p></div>
+                <div class="faq-question"><span>O material é resistente?</span> <i class="fas fa-chevron-down"></i></div>
+                <div class="faq-answer"><p>Sim, é construído em uma mistura de Polímero de engenharia (mesmo material de equipamentos táticos reais) e peças internas em metal.</p></div>
             </div>
         </section>
 
@@ -648,8 +629,7 @@
                     <ul>
                         <li><a href="rastreio.html">Rastrear Pedido</a></li>
                         <li><a href="trocas.html">Políticas de Troca</a></li>
-                        <li><a href="termos.html">Termos de Uso</a></li>
-                        <li>suporte@shopee.com</li>
+                        <li>suporte@centralachadinhos.com</li>
                     </ul>
                 </div>
                 <div class="footer-col">
@@ -660,14 +640,8 @@
                 </div>
             </div>
 
-            <div class="footer-address">
-                <strong>CNPJ/MF nº 35.635.824/0001-12</strong><br>
-                Endereço: Av. Brigadeiro Faria Lima, 3732 - 22º e 23º andares,<br>
-                Itaim Bibi, São Paulo (SP), Brasil, 04538-132
-            </div>
-
             <div class="copyright">
-                &copy; 2024 Blackview Loja Oficial. Todos os direitos reservados.
+                &copy; 2026 Central Achadinhos. Todos os direitos reservados.
             </div>
         </div>
     </footer>
@@ -680,24 +654,23 @@
 
     <div class="sticky-footer">
         <div class="price-footer">
-            <div class="old-f">R$ 849,90</div>
-            <div class="curr-f">R$ 127,90</div>
+            <div class="old-f">R$ 97,90</div>
+            <div class="curr-f">R$ 19,90</div>
         </div>
         <a href="javascript:void(0);" class="btn-footer" onclick="iniciarCompra()">
             COMPRAR AGORA
         </a>
     </div>
 
+    <!-- NOTIFICAÇÃO DE COMPRA -->
     <div id="notify-popup">
-        <img id="n-img" src="images/blackview-preto.webp" alt="Produto">
+        <img id="n-img" src="images/glock/glock-01.webp" alt="Produto">
         <div class="notify-content">
             <p><strong id="n-name">Fernando</strong> de <strong id="n-city">São Paulo, SP</strong></p>
-            <p>Comprou <strong>Blackview BV9300</strong></p>
+            <p>Comprou <strong>Mini Chaveiro Glock</strong></p>
             <span class="notify-time">Há poucos instantes</span>
         </div>
     </div>
-
-    <a href="https://wa.me/+5547991450417?text=Quero+o+BV9300+da+promocao" class="whatsapp-float" target="_blank"><i class="fab fa-whatsapp"></i></a>
 
     <div id="image-modal" onclick="closeZoom()">
         <span class="close-modal">&times;</span>
@@ -705,19 +678,33 @@
     </div>
 
     <script>
-        // --- 1. CONFIGURAÇÃO DE IMAGENS E CORES DA GALERIA ---
+        // --- SLIDER AUTOMÁTICO ---
+        const slides = document.querySelectorAll('.slide');
+        let currentSlide = 0;
+
+        function nextSlide() {
+            slides[currentSlide].classList.remove('active');
+            currentSlide = (currentSlide + 1) % slides.length;
+            slides[currentSlide].classList.add('active');
+        }
+        
+        setInterval(nextSlide, 5000); // Troca a cada 5 segundos
+
+        // --- CONFIGURAÇÃO DE IMAGENS E CORES ---
         const productImages = [
-            "images/blakview-preto/BV9300Pro-Black_01.webp",
-            "images/blakview-preto/BV9300Pro-Black_02.webp",
-            "images/blakview-preto/BV9300Pro-Black_03.webp",
-            "images/blakview-preto/BV9300Pro-Black_04.webp",
-            "images/blakview-preto/BV9300Pro-Black_05.webp",
-            "images/blakview-preto/BV9300Pro-Black_06.webp",
-            "images/blakview-preto/BV9300Pro-Black_07.webp"
+            "images/glock/glock-01.webp",
+            "images/glock/glock-02.webp",
+            "images/glock/glock-03.webp",
+            "images/glock/glock-04.webp",
+            "images/glock/glock-05.webp",
+            "images/glock/glock-06.webp",
         ];
+        
+        // Todas as posições são Preto agora
         const colorNames = ["Preto", "Preto", "Preto", "Preto", "Preto", "Preto", "Preto"];
         let currentImgIndex = 0;
         let selectedColor = "Preto";
+        
         const mainImageElement = document.getElementById('mainImage');
         const thumbnails = document.querySelectorAll('.thumb');
         const colorButtons = document.querySelectorAll('.color-btn');
@@ -743,22 +730,17 @@
             btnElement.classList.add('selected');
             currentImgIndex = index;
             updateGalleryDisplay();
-            
-            // Salva a cor selecionada no localStorage
-            salvarCorSelecionada();
         }
 
         function updateSelectedColor() {
             selectedColor = colorNames[currentImgIndex];
             document.getElementById('selectedColorName').innerText = selectedColor;
-            colorButtons.forEach((btn, idx) => {
-                if (idx === currentImgIndex) {
-                    btn.classList.add('selected');
-                } else {
-                    btn.classList.remove('selected');
-                }
+            // Como só tem um botão de cor, ele sempre fica selecionado, 
+            // mas o código abaixo garante a lógica caso adicione mais no futuro
+            colorButtons.forEach((btn) => {
+                if (btn.getAttribute('data-color') === selectedColor) btn.classList.add('selected');
+                // else btn.classList.remove('selected');
             });
-            salvarCorSelecionada();
         }
 
         function updateGalleryDisplay() {
@@ -773,77 +755,26 @@
             });
         }
 
-        // --- 2. SISTEMA DE PERSISTÊNCIA DA COR SELECIONADA ---
-        function salvarCorSelecionada() {
-            // Garante que a cor salva é a atualmente selecionada no DOM
-            try {
-                const selectedBtn = document.querySelector('.color-btn.selected');
-                const domColor = selectedBtn && (selectedBtn.getAttribute('data-color') || selectedBtn.dataset.color);
-                if (domColor) { selectedColor = domColor; }
-            } catch (e) {}
-
-            const productData = {
-                cor: selectedColor,
-                corIndex: currentImgIndex,
-                imagem: productImages[currentImgIndex],
-                produto: 'Blackview BV9300 Pro 5G',
-                preco: '127.90',
-                precoFormatado: 'R$ 127,90',
-                timestamp: Date.now()
-            };
-            localStorage.setItem('checkoutProduct', JSON.stringify(productData));
-            
-            // CORREÇÃO: Também salva no checkoutCart para garantir consistência
-            const cartData = {
-                cor: selectedColor,
-                quantidade: 1,
-                precoUnitario: 128.90
-            };
-            // Preserva quantidade existente se houver
-            const existingCart = localStorage.getItem('checkoutCart');
-            if (existingCart) {
-                try {
-                    const existing = JSON.parse(existingCart);
-                    cartData.quantidade = existing.quantidade || 1;
-                } catch(e) {}
-            }
-            localStorage.setItem('checkoutCart', JSON.stringify(cartData));
-        }
-
+        // --- CHECKOUT ---
         function iniciarCompra() {
-            // Salva a cor selecionada antes de redirecionar
-            salvarCorSelecionada();
-            
-            // Dispara evento do Facebook Pixel
-            if (typeof fbq !== 'undefined') {
-                fbq('track', 'InitiateCheckout');
-            }
-            
-            // Redireciona para a página de endereço
-            window.location.href = 'https://seguro.centralachadinhos.shop/r/BR8UCNAUS7';
+            // Insira seu Link de Checkout aqui
+            window.location.href = 'SEU_LINK_DE_CHECKOUT_AQUI';
         }
 
-        // --- 3. Lógica do Botão de Comentário ---
+        // --- UTILS ---
         function triggerReviewAlert() {
             var alertBox = document.getElementById("custom-alert");
             alertBox.classList.add("show"); 
-
-            setTimeout(function(){ 
-                alertBox.classList.remove("show"); 
-                const buyBtn = document.querySelector('.btn-buy');
-                if(buyBtn) buyBtn.scrollIntoView({ behavior: 'smooth', block: 'center' });
-            }, 3000);
+            setTimeout(() => alertBox.classList.remove("show"), 3000);
         }
 
-        // --- 4. FAQ Accordion ---
         document.querySelectorAll('.faq-question').forEach(item => {
             item.addEventListener('click', event => {
-                const parent = item.parentElement;
-                parent.classList.toggle('active');
+                item.parentElement.classList.toggle('active');
             })
         });
 
-        // --- 5. Cronômetro ---
+        // Timer
         function startTimer(duration, display) {
             var timer = duration, minutes, seconds;
             setInterval(function () {
@@ -856,109 +787,61 @@
             }, 1000);
         }
 
-        // --- 6. Geolocalização ---
+        // GeoLocalização Fake
         async function getGeo() {
             const msg = document.getElementById('shipping-msg');
             try {
                 const res = await fetch('https://ipapi.co/json/');
                 const data = await res.json();
-                if(data.city) {
-                    msg.innerHTML = `<strong>Frete Grátis</strong> para <strong>${data.city}</strong> e região!`;
-                } else {
-                    throw new Error("Cidade não detectada");
-                }
-            } catch(e) { 
-                msg.innerHTML = `<strong>Frete Grátis</strong> para todo o <strong>Brasil</strong>!`;
-            }
+                if(data.city) msg.innerHTML = `<strong>Envio Imediato</strong> para <strong>${data.city}</strong> e região!`;
+            } catch(e) {}
         }
 
-        // --- 7. Botão "Útil?" ---
         function markHelpful(btn) {
             if (btn.classList.contains('clicked')) return;
             btn.classList.add('clicked');
             const countSpan = btn.querySelector('.helpful-count');
-            let count = parseInt(countSpan.innerText);
-            countSpan.innerText = count + 1;
+            countSpan.innerText = parseInt(countSpan.innerText) + 1;
             btn.querySelector('i').className = 'fas fa-thumbs-up'; 
         }
 
-        // --- 8. Zoom na Imagem do Comentário ---
         function openZoom(src) {
-            const modal = document.getElementById('image-modal');
-            const zoomedImg = document.getElementById('zoomed-img');
-            zoomedImg.src = src;
-            modal.classList.add('active');
+            document.getElementById('zoomed-img').src = src;
+            document.getElementById('image-modal').classList.add('active');
         }
         function closeZoom() {
             document.getElementById('image-modal').classList.remove('active');
         }
 
-        // --- 9. SIMULAÇÃO ADICIONAR AO CARRINHO ---
-        function adicionarAoCarrinho(event) {
-            event.preventDefault();
-
-            // Salva a cor selecionada
-            salvarCorSelecionada();
-
-            // 1. Atualiza o contador do carrinho
-            const cartCountEl = document.querySelector('.cart-count');
-            let currentCount = parseInt(cartCountEl.innerText);
-            cartCountEl.innerText = currentCount + 1;
-
-            // 2. Anima o ícone do carrinho
-            const cartContainer = document.querySelector('.cart-container');
-            cartContainer.classList.add('cart-animating');
-            setTimeout(() => cartContainer.classList.remove('cart-animating'), 300);
-
-            // 3. Feedback visual no botão clicado
-            const btn = event.currentTarget;
-            const originalHTML = btn.innerHTML;
-            
-            btn.innerHTML = '<i class="fas fa-check"></i> Adicionado!';
-            btn.style.backgroundColor = '#dff0d8';
-            btn.style.borderColor = '#d6e9c6';
-            btn.style.color = '#3c763d';
-
-            // 4. Volta ao normal após 2 segundos
-            setTimeout(() => {
-                btn.innerHTML = originalHTML;
-                btn.style.backgroundColor = ''; 
-                btn.style.borderColor = '';
-                btn.style.color = '';
-            }, 2000);
-        }
-
-        // --- INICIALIZAÇÃO ---
         window.onload = function () {
-            startTimer(60 * 15, document.querySelector('#countdown'));
+            startTimer(60 * 10, document.querySelector('#countdown'));
             getGeo();
-            
-            // Recupera cor salva anteriormente (se existir)
-            const savedProduct = localStorage.getItem('checkoutProduct');
-            if (savedProduct) {
-                try {
-                    const data = JSON.parse(savedProduct);
-                    if (data.corIndex !== undefined && data.corIndex >= 0 && data.corIndex < productImages.length) {
-                        currentImgIndex = data.corIndex;
-                        selectedColor = data.cor;
-                        updateGalleryDisplay();
-                        document.getElementById('selectedColorName').innerText = selectedColor;
-                        colorButtons.forEach((btn, idx) => {
-                            if (idx === currentImgIndex) {
-                                btn.classList.add('selected');
-                            } else {
-                                btn.classList.remove('selected');
-                            }
-                        });
-                    }
-                } catch(e) {}
-            }
         };
+
+        // --- NOTIFICATION MODULE INTEGRADO (MAIS NATURAL) ---
+        (function() {
+            const names = ['Pedro', 'Lucas', 'João', 'Ana', 'Carlos', 'Mateus', 'Gabriel', 'Larissa'];
+            const cities = ['São Paulo, SP', 'Rio de Janeiro, RJ', 'Belo Horizonte, MG', 'Curitiba, PR'];
+            
+            function showNotification() {
+                const popup = document.getElementById('notify-popup');
+                if(!popup) return;
+                document.getElementById('n-name').textContent = names[Math.floor(Math.random() * names.length)];
+                document.getElementById('n-city').textContent = cities[Math.floor(Math.random() * cities.length)];
+                popup.classList.add('show');
+                
+                // Esconde após 5 segundos
+                setTimeout(() => {
+                    popup.classList.remove('show');
+                    // Agenda a próxima notificação com tempo aleatório (entre 30s e 90s)
+                    const nextTime = Math.random() * (90000 - 30000) + 30000;
+                    setTimeout(showNotification, nextTime);
+                }, 5000);
+            }
+
+            // Inicia a primeira notificação após 15 segundos
+            setTimeout(showNotification, 15000);
+        })();
     </script>
-
-    <script src="notification-module.js"></script>
-
-    <script src="assets/js/orderStore.js"></script>
-    <script src="assets/js/main-cart.js"></script>
 </body>
 </html>
